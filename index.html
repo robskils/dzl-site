@@ -369,15 +369,12 @@
       padding: 2.25rem;
     }
 
-    .enso-svg {
-      width: 90%;
-      aspect-ratio: 1;
-    }
-
-    .enso-svg svg {
-      width: 100%;
-      height: 100%;
-      display: block;
+    .enso-kanji {
+      font-family: var(--font-serif);
+      font-size: clamp(8rem, 16vw, 14rem);
+      color: rgba(240, 235, 227, 0.08);
+      line-height: 1;
+      user-select: none;
     }
 
     .enso-seal {
@@ -491,9 +488,6 @@
 
     .sched-cell:hover { background: var(--ink-3); }
 
-    .sched-cell.highlight {
-      border-bottom: 2px solid var(--red);
-    }
 
     .sched-day {
       font-family: var(--font-serif);
@@ -1107,46 +1101,8 @@
     <div class="container">
       <div class="enso-grid">
         <div class="enso-visual">
-          <div class="enso-svg">
-            <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <!-- Coarse displacement: overall stroke waviness -->
-                <filter id="enso-brush" x="-18%" y="-18%" width="136%" height="136%" color-interpolation-filters="sRGB">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.022 0.014" numOctaves="3" seed="7" result="coarse"/>
-                  <feDisplacementMap in="SourceGraphic" in2="coarse" scale="7" xChannelSelector="R" yChannelSelector="G" result="warped"/>
-                  <feTurbulence type="fractalNoise" baseFrequency="0.11 0.07" numOctaves="5" seed="12" result="fine"/>
-                  <feDisplacementMap in="warped" in2="fine" scale="3" xChannelSelector="R" yChannelSelector="G" result="bristled"/>
-                  <feGaussianBlur in="bristled" stdDeviation="0.55" result="soft"/>
-                  <!-- Darken the outer edge slightly to suggest ink pooling -->
-                  <feComposite in="soft" in2="soft" operator="over"/>
-                </filter>
-              </defs>
-              <!-- Open circle — gap at top, thicker in the sweep, tapering at both ends -->
-              <path
-                d="M 162 22
-                   C 228 28, 278 80, 278 150
-                   C 278 224, 222 278, 150 278
-                   C 78 278, 22 224, 22 150
-                   C 22 80, 68 28, 134 22"
-                stroke="rgba(240,235,227,0.82)"
-                stroke-width="24"
-                stroke-linecap="round"
-                fill="none"
-                filter="url(#enso-brush)"
-              />
-              <!-- Tapered tail — secondary stroke for the trailing end of the brush -->
-              <path
-                d="M 162 22 C 155 20, 148 21, 142 22"
-                stroke="rgba(240,235,227,0.4)"
-                stroke-width="10"
-                stroke-linecap="round"
-                fill="none"
-                filter="url(#enso-brush)"
-              />
-            </svg>
-          </div>
+          <div class="enso-kanji">坐</div>
           <div class="enso-seal"><span>禅</span></div>
-          <div class="enso-caption">Imagem · Dojo Zen de Lisboa</div>
         </div>
         <div class="enso-copy">
           <div class="eyebrow">O Que Oferecemos</div>
@@ -1196,16 +1152,12 @@
           <div class="sched-time">07h15</div>
           <div class="sched-label">Matinal</div>
         </div>
-        <div class="sched-cell highlight">
+        <div class="sched-cell">
           <div class="sched-day">Sábado</div>
           <div class="sched-time">11h00</div>
-          <div class="sched-label">Introdução</div>
         </div>
       </div>
 
-      <div class="schedule-note">
-        A sessão de sábado às 11h00 é especialmente indicada para quem chega pela primeira vez. Chegue 15 minutos antes — será recebido, orientado na postura e integrado na sessão.
-      </div>
     </div>
   </section>
 
@@ -1314,7 +1266,7 @@
             <div class="master-portrait-fill"><span>道</span></div>
           </div>
           <div>
-            <div class="master-role-tag">Fundador</div>
+            <div class="master-role-tag">Mestre</div>
             <div class="master-name">Raphaël Doko Triet</div>
             <div class="master-title">Mestre Zen · Fundador do Ryumonji</div>
             <p class="master-bio">Fundou o Dojo Zen de Lisboa em 1997, estabelecendo em Portugal uma linhagem autêntica da tradição Soto Zen. Discípulo de Taïsen Deshimaru, dedicou décadas à transmissão rigorosa e acessível do Zazen na Europa.</p>
@@ -1325,7 +1277,7 @@
             <div class="master-portrait-fill"><span>心</span></div>
           </div>
           <div>
-            <div class="master-role-tag">Director</div>
+            <div class="master-role-tag">Mestre</div>
             <div class="master-name">Yves Shoshin Crettaz</div>
             <div class="master-title">Mestre Zen · Director do Ryumonji</div>
             <p class="master-bio">Dirige o Ryumonji mantendo a prática diária aberta, rigorosa e acessível. Orienta os praticantes com clareza e proximidade, preservando a essência da transmissão Soto na sua integridade.</p>
