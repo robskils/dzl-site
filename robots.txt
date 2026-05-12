@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dojozenlisboa.com/sitemap.xml
