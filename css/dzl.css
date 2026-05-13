@@ -920,8 +920,9 @@ footer {
     gap: 2rem;
   }
 
-  .footer-main { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-main { grid-template-columns: 1fr !important; gap: 2rem; padding: 3.5rem 0 3rem; }
   .footer-brand { grid-column: 1; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 0; }
 }
 
 @media (max-width: 768px) {
