@@ -267,6 +267,7 @@ nav .nav-item:hover > a { color: var(--ink); }
   font-size: 0.82rem !important;
   letter-spacing: 0.13em !important;
   color: rgba(28,24,18,0.65) !important;
+  text-decoration: none !important;
 }
 
 .dropdown a:hover { color: var(--ink) !important; background: var(--paper-2); }
