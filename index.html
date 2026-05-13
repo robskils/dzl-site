@@ -1202,15 +1202,42 @@
       .sched-time { grid-column: 2; grid-row: 1 / 3; align-self: center; font-size: 1.6rem; margin-bottom: 0; padding-left: 1.5rem; }
       .downloads-grid { grid-template-columns: 1fr !important; }
 
-      /* Events */
+      /* Events — stacked card layout on mobile */
       .section-events { padding: 4rem 0; }
       .events-head { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
-      .event-row { grid-template-columns: 3.5rem 1fr auto; gap: 1rem; padding: 1.25rem 1rem; align-items: center; }
-      .event-body p { display: none; }
-      .event-body h3 { font-size: 1.15rem; margin-bottom: 0.3rem; }
-      .event-aside { display: flex !important; flex-direction: column; align-items: flex-end; gap: 0.2rem; }
-      .event-price { font-size: 1rem; }
-      .event-cta { font-size: 0.5rem; white-space: nowrap; }
+      .event-row {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        padding: 1.5rem 1.25rem !important;
+        gap: 0 !important;
+      }
+      .event-date {
+        display: flex !important;
+        align-items: baseline !important;
+        gap: 0.45rem !important;
+        border-right: none !important;
+        padding-right: 0 !important;
+        text-align: left !important;
+        margin-bottom: 0.6rem !important;
+      }
+      .event-num { font-size: 1rem !important; line-height: 1 !important; }
+      .event-mon { margin-top: 0 !important; }
+      .event-body { width: 100%; }
+      .event-body p { display: none !important; }
+      .event-body h3 { font-size: 1.3rem !important; margin-bottom: 0.4rem !important; }
+      .event-aside {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+        margin-top: 1rem !important;
+        padding-top: 0.75rem !important;
+        border-top: 1px solid var(--rule) !important;
+      }
+      .event-price { font-size: 1.05rem !important; }
+      .event-cta { font-size: 0.55rem !important; letter-spacing: 0.15em !important; }
 
       /* Masters — full-width portrait, text below */
       .section-masters { padding: 4rem 0; }
