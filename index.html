@@ -11,17 +11,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink:     #0c0b09;
-      --ink-2:   #131209;
-      --ink-3:   #1a1810;
-      --stone:   #f0ebe3;
-      --mist:    rgba(240, 235, 227, 0.52);
-      --ghost:   rgba(240, 235, 227, 0.07);
-      --red:     #c4412e;
-      --red-dim: rgba(196, 65, 46, 0.15);
-      --gold:    #a8844a;
-      --gold-dim:rgba(168, 132, 74, 0.2);
-      --rule:    rgba(240, 235, 227, 0.08);
+      --paper:    #f5f0e8;
+      --ink:      #1c1812;
+      --ink-2:    #ede8df;
+      --ink-3:    #e5dfd4;
+      --stone:    #f5f0e8;
+      --mist:     rgba(28, 24, 18, 0.55);
+      --ghost:    rgba(28, 24, 18, 0.05);
+      --red:      #c4412e;
+      --red-dim:  rgba(196, 65, 46, 0.12);
+      --gold:     #a8844a;
+      --gold-dim: rgba(168, 132, 74, 0.2);
+      --rule:     rgba(28, 24, 18, 0.1);
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans:  'Inter', system-ui, sans-serif;
     }
@@ -30,8 +31,9 @@
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--ink);
-      color: var(--stone);
+      background-color: var(--paper);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
+      color: var(--ink);
       font-family: var(--font-sans);
       font-size: 16px;
       line-height: 1.7;
@@ -66,8 +68,9 @@
     }
 
     #site-header.scrolled {
-      background: rgba(12, 11, 9, 0.9);
+      background: rgba(245, 240, 232, 0.94);
       backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--rule);
     }
 
     .logo {
@@ -75,7 +78,7 @@
       align-items: center;
       gap: 0.85rem;
       text-decoration: none;
-      color: var(--stone);
+      color: var(--ink);
     }
 
     .logo-seal {
@@ -102,7 +105,7 @@
       font-size: 1rem;
       font-weight: 500;
       letter-spacing: 0.04em;
-      color: var(--stone);
+      color: var(--ink);
     }
 
     .logo-text .sub {
@@ -124,12 +127,12 @@
       letter-spacing: 0.24em;
       text-transform: uppercase;
       text-decoration: none;
-      color: rgba(240, 235, 227, 0.6);
+      color: rgba(28, 24, 18, 0.5);
       transition: color 0.2s;
     }
 
     nav a:hover,
-    nav a.active { color: var(--stone); }
+    nav a.active { color: var(--ink); }
 
     /* ── HERO ── */
     .hero {
@@ -145,19 +148,12 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse 50% 80% at 80% 40%, rgba(120, 20, 10, 0.18) 0%, transparent 60%),
-        radial-gradient(ellipse 85% 60% at 5% 95%, rgba(10, 8, 5, 0.98) 0%, transparent 55%),
-        linear-gradient(165deg, #0e0c08 0%, #0c0b09 50%, #100e0a 100%);
+        radial-gradient(ellipse 55% 60% at 80% 35%, rgba(196, 65, 46, 0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 70% 50% at 5% 90%, rgba(168, 132, 74, 0.05) 0%, transparent 60%),
+        var(--paper);
     }
 
-    /* Subtle noise */
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0.3;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
-    }
+    /* Subtle noise — inherited from body background-image */
 
     /* Floral/atmospheric right-side glow — placeholder for photography */
     .hero-right-glow {
@@ -167,8 +163,8 @@
       width: 45%;
       height: 100%;
       background:
-        radial-gradient(ellipse 80% 60% at 85% 30%, rgba(90, 12, 8, 0.35) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 100% 50%, rgba(60, 8, 5, 0.22) 0%, transparent 70%);
+        radial-gradient(ellipse 80% 60% at 85% 30%, rgba(196, 65, 46, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 100% 50%, rgba(168, 132, 74, 0.04) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -188,7 +184,7 @@
     .hero-shikantaza span {
       font-family: var(--font-serif);
       font-size: clamp(1.4rem, 2.5vw, 2.25rem);
-      color: rgba(240, 235, 227, 0.12);
+      color: rgba(28, 24, 18, 0.1);
       line-height: 1;
       display: block;
     }
@@ -214,7 +210,7 @@
       font-weight: 400;
       line-height: 0.94;
       letter-spacing: -0.01em;
-      color: var(--stone);
+      color: var(--ink);
       max-width: 14ch;
     }
 
@@ -256,8 +252,8 @@
       align-items: center;
       gap: 0.6rem;
       padding: 0.85rem 2rem;
-      border: 1px solid rgba(240, 235, 227, 0.22);
-      color: var(--stone);
+      border: 1px solid rgba(28, 24, 18, 0.22);
+      color: var(--ink);
       font-size: 0.62rem;
       font-weight: 500;
       letter-spacing: 0.22em;
@@ -284,13 +280,13 @@
       font-size: 0.55rem;
       letter-spacing: 0.38em;
       text-transform: uppercase;
-      color: rgba(240, 235, 227, 0.28);
+      color: rgba(28, 24, 18, 0.35);
     }
 
     .hero-scroll-line {
       width: 1px;
       height: 3.5rem;
-      background: linear-gradient(to bottom, rgba(240,235,227,0.2), transparent);
+      background: linear-gradient(to bottom, rgba(28,24,18,0.2), transparent);
     }
 
     /* ── PILLARS ── */
@@ -321,7 +317,7 @@
       right: 3rem;
       font-size: 0.58rem;
       letter-spacing: 0.3em;
-      color: rgba(240, 235, 227, 0.18);
+      color: rgba(28, 24, 18, 0.2);
     }
 
     .pillar-kanji {
@@ -337,7 +333,7 @@
       font-family: var(--font-serif);
       font-size: 1.5rem;
       font-weight: 400;
-      color: var(--stone);
+      color: var(--ink);
       margin-bottom: 0.75rem;
     }
 
@@ -372,7 +368,7 @@
     .enso-kanji {
       font-family: var(--font-serif);
       font-size: clamp(8rem, 16vw, 14rem);
-      color: rgba(240, 235, 227, 0.08);
+      color: rgba(28, 24, 18, 0.08);
       line-height: 1;
       user-select: none;
     }
@@ -492,7 +488,7 @@
     .sched-day {
       font-family: var(--font-serif);
       font-size: 0.95rem;
-      color: var(--stone);
+      color: var(--ink);
       margin-bottom: 1rem;
       letter-spacing: 0.02em;
     }
@@ -524,7 +520,7 @@
       line-height: 1.65;
     }
 
-    .schedule-note strong { color: var(--stone); }
+    .schedule-note strong { color: var(--ink); }
 
     /* ── EVENTS ── */
     .section-events {
@@ -565,7 +561,7 @@
     }
 
     .event-row {
-      background: var(--ink);
+      background: var(--paper);
       display: grid;
       grid-template-columns: 5.5rem 1fr auto;
       gap: 3rem;
@@ -604,7 +600,7 @@
       font-family: var(--font-serif);
       font-size: 1.6rem;
       font-weight: 400;
-      color: var(--stone);
+      color: var(--ink);
       margin-bottom: 0.4rem;
     }
 
@@ -644,7 +640,7 @@
     .event-price {
       font-family: var(--font-serif);
       font-size: 1.5rem;
-      color: var(--stone);
+      color: var(--ink);
       display: block;
       font-weight: 300;
     }
@@ -707,7 +703,7 @@
     .master-portrait-fill {
       position: absolute;
       inset: 0;
-      background: linear-gradient(155deg, #1e1a10 0%, #0e0c08 100%);
+      background: linear-gradient(155deg, #ede8df 0%, #e5dfd4 100%);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -716,7 +712,7 @@
     .master-portrait-fill span {
       font-family: var(--font-serif);
       font-size: 3rem;
-      color: rgba(196, 65, 46, 0.15);
+      color: rgba(196, 65, 46, 0.2);
     }
 
     .master-role-tag {
@@ -731,7 +727,7 @@
       font-family: var(--font-serif);
       font-size: 1.5rem;
       font-weight: 400;
-      color: var(--stone);
+      color: var(--ink);
       margin-bottom: 0.2rem;
       line-height: 1.2;
     }
@@ -811,7 +807,7 @@
       margin: 0;
     }
 
-    .step p strong { color: var(--stone); }
+    .step p strong { color: var(--ink); }
 
     .beginners-right {
       padding: 5rem;
@@ -870,7 +866,7 @@
       font-style: italic;
       font-weight: 300;
       line-height: 1.55;
-      color: var(--stone);
+      color: var(--ink);
     }
 
     cite {
@@ -1016,7 +1012,7 @@
     .footer-bottom p,
     .footer-bottom a {
       font-size: 0.68rem;
-      color: rgba(240, 235, 227, 0.22);
+      color: rgba(28, 24, 18, 0.35);
       text-decoration: none;
       letter-spacing: 0.1em;
       transition: color 0.2s;
@@ -1121,7 +1117,7 @@
       <div class="schedule-head">
         <div>
           <div class="eyebrow">Horário Semanal</div>
-          <h2>A prática não descansa.</h2>
+          <h2>Apenas sentai.</h2>
         </div>
         <p>As sessões são abertas a todos os praticantes, com ou sem experiência. Recomendamos a chegada com 15 minutos de antecedência, especialmente na primeira visita.</p>
       </div>
