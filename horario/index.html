@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horário — Dojo Zen de Lisboa</title>
+  <meta name="description" content="Horário semanal do Dojo Zen de Lisboa – Ryumonji. Sessões de Zazen abertas a todos.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:   #1c1812;
+      --paper: #f5f0e8;
+      --red:   #c4412e;
+      --gold:  #a8844a;
+      --mist:  rgba(28,24,18,0.5);
+      --rule:  rgba(28,24,18,0.12);
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── Screen nav ── */
+    .screen-header {
+      background: var(--ink);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .screen-header a { color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.05em; }
+    .screen-header a:hover { color: #fff; }
+    .print-btn {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .print-btn:hover { background: #d4503c; }
+
+    /* ── Print page ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 2rem auto;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Background kanji watermark */
+    .bg-kanji {
+      position: absolute;
+      right: -2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 38rem;
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Top red bar */
+    .top-bar {
+      background: var(--red);
+      height: 6px;
+      width: 100%;
+    }
+
+    /* Header */
+    .doc-header {
+      padding: 3rem 3.5rem 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .seal {
+      width: 48px;
+      height: 48px;
+      background: var(--red);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .seal span {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.6rem;
+      color: #fff;
+      line-height: 1;
+    }
+    .logo-text .name {
+      display: block;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      color: #fff;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .logo-text .sub {
+      display: block;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-top: 0.15rem;
+    }
+
+    .doc-meta {
+      text-align: right;
+    }
+    .doc-meta .label {
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .doc-meta .value {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Title block */
+    .title-block {
+      padding: 0 3.5rem 3rem;
+      position: relative;
+    }
+    .eyebrow {
+      font-size: 0.58rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: var(--gold);
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+    }
+    .subtitle {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.5rem;
+    }
+
+    /* Rule */
+    .rule {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 0 3.5rem;
+    }
+
+    /* Schedule */
+    .schedule {
+      padding: 2.5rem 3.5rem;
+      flex: 1;
+    }
+
+    .session {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+    }
+    .session:last-child { border-bottom: none; }
+
+    .session-day {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.01em;
+    }
+    .session-type {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-top: 0.2rem;
+    }
+    .session-time {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--red);
+      letter-spacing: -0.02em;
+    }
+
+    /* Address block */
+    .address-block {
+      margin: 0 3.5rem;
+      padding: 1.5rem 2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .addr-item .label {
+      font-size: 0.55rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.4rem;
+    }
+    .addr-item p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    /* Footer */
+    .doc-footer {
+      padding: 1.5rem 3.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.5rem;
+    }
+    .doc-footer p {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.05em;
+    }
+    .doc-footer .url {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-style: italic;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.8rem;
+    }
+
+    /* ── Print styles ── */
+    @media print {
+      body { background: none; }
+      .screen-header { display: none; }
+      .page {
+        margin: 0;
+        width: 210mm;
+        min-height: 297mm;
+        box-shadow: none;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+
+    /* ── Responsive for small screens ── */
+    @media (max-width: 700px) {
+      .page { width: 100%; margin: 0; }
+      .doc-header, .title-block, .schedule, .address-block, .doc-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .rule { margin: 0 1.5rem; }
+      .address-block { grid-template-columns: 1fr; margin: 0 1.5rem; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-header">
+    <a href="/">← Dojo Zen de Lisboa</a>
+    <button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+  </div>
+
+  <div class="page">
+    <div class="bg-kanji">坐</div>
+    <div class="top-bar"></div>
+
+    <div class="doc-header">
+      <div class="logo-wrap">
+        <div class="seal"><span>禅</span></div>
+        <div class="logo-text">
+          <span class="name">Dojo Zen de Lisboa</span>
+          <span class="sub">Ryūmonji · desde 1997</span>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <span class="label">Tradição</span>
+        <span class="value">Soto Zen · AZI</span>
+      </div>
+    </div>
+
+    <div class="title-block">
+      <div class="eyebrow">Horário Semanal</div>
+      <h1>Sessões<br>de Zazen</h1>
+      <p class="subtitle">Abertas a todos, com ou sem experiência</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="schedule">
+      <div class="session">
+        <div>
+          <div class="session-day">Segunda-feira</div>
+          <div class="session-type">Nocturno</div>
+        </div>
+        <div class="session-time">19h30</div>
+      </div>
+      <div class="session">
+        <div>
+          <div class="session-day">Terça-feira</div>
+          <div class="session-type">Matinal</div>
+        </div>
+        <div class="session-time">07h15</div>
+      </div>
+      <div class="session">
+        <div>
+          <div class="session-day">Quarta-feira</div>
+          <div class="session-type">Matinal</div>
+        </div>
+        <div class="session-time">07h15</div>
+      </div>
+      <div class="session">
+        <div>
+          <div class="session-day">Quinta-feira</div>
+          <div class="session-type">Nocturno</div>
+        </div>
+        <div class="session-time">19h30</div>
+      </div>
+      <div class="session">
+        <div>
+          <div class="session-day">Sexta-feira</div>
+          <div class="session-type">Matinal</div>
+        </div>
+        <div class="session-time">07h15</div>
+      </div>
+      <div class="session">
+        <div>
+          <div class="session-day">Sábado</div>
+          <div class="session-type">Manhã</div>
+        </div>
+        <div class="session-time">11h00</div>
+      </div>
+    </div>
+
+    <div class="rule" style="margin-bottom:1.5rem;"></div>
+
+    <div class="address-block">
+      <div class="addr-item">
+        <div class="label">Morada</div>
+        <p>Rua Luciano Cordeiro nº 49 CV–Dtº<br>1150-212 Lisboa</p>
+      </div>
+      <div class="addr-item">
+        <div class="label">Como chegar</div>
+        <p>Metro: Marquês de Pombal<br>Linha Amarela e Azul</p>
+      </div>
+      <div class="addr-item">
+        <div class="label">Contacto</div>
+        <p>contacto@dojozenlisboa.com<br>dojozenlisboa.com</p>
+      </div>
+    </div>
+
+    <div class="doc-footer">
+      <p>Entrada livre · Contribuição voluntária (Fuse)</p>
+      <span class="url">dojozenlisboa.com</span>
+    </div>
+  </div>
+
+</body>
+</html>
