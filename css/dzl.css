@@ -625,21 +625,21 @@ nav .nav-item:hover > a { color: var(--ink); }
 
 /* ── Info cards ── */
 .info-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   border-top: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
 }
 
 .info-card {
-  width: 100%;
-  padding: 1.75rem 0;
-  border-bottom: 1px solid var(--rule);
+  padding: 1.75rem 2rem 1.75rem 0;
+  border-right: 1px solid var(--rule);
 }
 
 .info-card:last-child {
-  border-bottom: none;
+  border-right: none;
+  padding-right: 0;
 }
 
 .info-card h4 {
@@ -1006,6 +1006,19 @@ footer {
     gap: 2.5rem !important;
   }
 
+  /* Info cards: side-by-side → stack */
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+  .info-card {
+    border-right: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 1.5rem 0;
+  }
+  .info-card:last-child {
+    border-bottom: none;
+  }
+
   /* Inner page sections */
   .section { padding: 3.5rem 0; }
   .section-alt { padding: 3.5rem 0; }
@@ -1046,6 +1059,8 @@ footer {
 .parallax-wrap {
   position: relative;
   overflow: hidden;
+  clip-path: inset(0);          /* clips GPU-composited children that escape overflow:hidden */
+  isolation: isolate;
 }
 
 .parallax-wrap .parallax-img {
@@ -1055,6 +1070,55 @@ footer {
   will-change: transform;
 }
 
+/* Dark vignette + warm corner tint */
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(196,65,46,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 85% 120% at 50% 50%, transparent 20%, rgba(14,13,11,0.58) 100%),
+    linear-gradient(to bottom, rgba(14,13,11,0.3) 0%, transparent 24%, transparent 76%, rgba(14,13,11,0.3) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Horizontal scan lines — drift at a different speed */
+.parallax-lines {
+  position: absolute;
+  inset: -40px 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 79px,
+    rgba(221,215,204,0.032) 79px,
+    rgba(221,215,204,0.032) 80px
+  );
+  pointer-events: none;
+  z-index: 2;
+  will-change: transform;
+}
+
+/* Counter-drifting kanji */
+.parallax-kanji-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 7%;
+  pointer-events: none;
+  z-index: 3;
+  will-change: transform;
+}
+
+.parallax-kanji {
+  font-family: var(--font-serif);
+  font-size: clamp(7rem, 18vw, 13rem);
+  color: rgba(255,255,255,0.055);
+  line-height: 1;
+  user-select: none;
+}
+
 @media (max-width: 768px) {
   .parallax-wrap .parallax-img {
     position: relative !important;
@@ -1062,6 +1126,9 @@ footer {
     transform: none !important;
     height: 260px !important;
   }
+  .parallax-overlay,
+  .parallax-lines,
+  .parallax-kanji-wrap { display: none; }
 }
 
 @media (max-width: 600px) {
