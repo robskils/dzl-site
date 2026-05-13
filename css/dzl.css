@@ -264,8 +264,10 @@ nav .nav-item:hover > a { color: var(--ink); }
 
 .dropdown a {
   padding: 0.75rem 1.25rem;
-  font-size: 0.95rem !important;
-  letter-spacing: 0.1em !important;
+  font-size: 0.72rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
   color: rgba(28,24,18,0.65) !important;
   text-decoration: none !important;
 }
