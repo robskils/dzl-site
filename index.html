@@ -1162,10 +1162,15 @@
 
     /* ── MOBILE ── */
     @media (max-width: 768px) {
+      /* Logo: hide Ryūmonji sub, bigger name */
+      .logo-text .sub { display: none; }
+      .logo-text .name { font-size: 1.15rem; }
+
       /* Hero */
       .hero { min-height: 100svh; }
       .hero-bg-art { display: none; }
       .hero-shikantaza { display: none; }
+      .hero-eyebrow { margin-bottom: 3rem; }
       .hero-actions { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
 
       /* Enso */
@@ -1190,7 +1195,9 @@
       .section-masters { padding: 4rem 0; }
       .masters-head { margin-bottom: 2.5rem; }
       .masters-grid { grid-template-columns: 1fr; }
-      .master-card { grid-template-columns: 6rem 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
+      .master-card { grid-template-columns: 1fr; gap: 0; padding: 0; }
+      .master-portrait { aspect-ratio: 3/2; width: 100%; max-height: 280px; }
+      .master-card > div:last-child { padding: 1.75rem; }
 
       /* Pillars */
       .pillars-grid { grid-template-columns: 1fr; }
