@@ -40,9 +40,9 @@ body {
 
 /* ── Typography ── */
 .eyebrow {
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.36em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
   display: flex;
@@ -505,6 +505,52 @@ nav .nav-item:hover > a { color: var(--ink); }
   font-size: 1rem;
   line-height: 1.7;
   display: none;
+}
+
+/* ── Member/price toggle ── */
+.member-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+  margin-top: 0.25rem;
+}
+
+.member-option { cursor: pointer; display: block; }
+
+.member-option input[type="radio"] { display: none; }
+
+.member-option-face {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  background: var(--paper-3);
+  transition: background 0.18s;
+}
+
+.member-option input[type="radio"]:checked + .member-option-face {
+  background: var(--red-dim);
+  box-shadow: inset 0 0 0 2px var(--red);
+}
+
+.member-option-label {
+  font-size: 0.85rem;
+  color: var(--mist);
+  transition: color 0.18s;
+}
+
+.member-option-price {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--ink);
+  transition: color 0.18s;
+}
+
+.member-option input[type="radio"]:checked + .member-option-face .member-option-label,
+.member-option input[type="radio"]:checked + .member-option-face .member-option-price {
+  color: var(--red);
 }
 
 /* ── Info cards ── */

@@ -107,11 +107,34 @@
                     <option value="principiante">Principiante</option>
                     <option value="alguma">Alguma prática</option>
                     <option value="regular">Praticante regular</option>
-                    <option value="membro">Membro do dojo</option>
                   </select>
                 </div>
+                <div class="form-field full">
+                  <span class="form-label">Sou sócio do dojo?</span>
+                  <div class="member-toggle">
+                    <label class="member-option">
+                      <input type="radio" name="membro" value="nao-socio" checked>
+                      <span class="member-option-face">
+                        <span class="member-option-label">Não sou sócio</span>
+                        <span class="member-option-price">€ 25</span>
+                      </span>
+                    </label>
+                    <label class="member-option">
+                      <input type="radio" name="membro" value="socio">
+                      <span class="member-option-face">
+                        <span class="member-option-label">Sou sócio</span>
+                        <span class="member-option-price">€ 20</span>
+                      </span>
+                    </label>
+                  </div>
+                </div>
                 <div class="form-field full" style="margin-top:0.5rem;">
+                  <div style="display:flex; gap:0.85rem; align-items:flex-start; padding:1rem 1.25rem; background:var(--gold-dim); border-left:2px solid var(--gold); margin-bottom:1.25rem;">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="flex-shrink:0; margin-top:2px; color:var(--gold);"><rect x="1" y="4" width="14" height="9" rx="1"/><path d="M5 4V3a1 1 0 011-1h4a1 1 0 011 1v1"/><circle cx="8" cy="8.5" r="1.5"/></svg>
+                    <p style="font-size:0.9rem; color:var(--ink); margin:0; line-height:1.65;">Por favor traga o pagamento em <strong>numerário</strong> no dia do evento.</p>
+                  </div>
                   <button type="submit" class="btn-red">Confirmar presença</button>
+                  <p class="form-note" style="margin-top:1rem;">Os seus dados são utilizados apenas para gerir a inscrição.</p>
                 </div>
               </div>
             </form>
