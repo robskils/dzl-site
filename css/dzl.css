@@ -857,8 +857,8 @@ footer {
     gap: 2rem;
   }
 
-  .footer-main { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
-  .footer-brand { grid-column: 1 / -1; }
+  .footer-main { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1; }
 }
 
 @media (max-width: 768px) {
