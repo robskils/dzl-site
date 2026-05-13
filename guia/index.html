@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Iniciação — Dojo Zen de Lisboa</title>
+  <meta name="description" content="Guia de iniciação ao Zazen no Dojo Zen de Lisboa. Postura, protocolo e o que esperar na primeira sessão.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:   #1c1812;
+      --paper: #f5f0e8;
+      --red:   #c4412e;
+      --gold:  #a8844a;
+      --mist:  rgba(28,24,18,0.5);
+      --rule:  rgba(28,24,18,0.12);
+    }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── Screen nav ── */
+    .screen-header {
+      background: var(--ink);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .screen-header a { color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.05em; }
+    .screen-header a:hover { color: #fff; }
+    .print-btn {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .print-btn:hover { background: #d4503c; }
+
+    /* ── Print page ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 2rem auto;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bg-kanji {
+      position: absolute;
+      right: -3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 38rem;
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .top-bar {
+      background: var(--red);
+      height: 6px;
+      width: 100%;
+    }
+
+    .doc-header {
+      padding: 3rem 3.5rem 2.5rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .logo-wrap { display: flex; align-items: center; gap: 1rem; }
+    .seal {
+      width: 48px; height: 48px;
+      background: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .seal span { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; color: #fff; line-height: 1; }
+    .logo-text .name { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; color: #fff; font-weight: 400; letter-spacing: 0.02em; line-height: 1.2; }
+    .logo-text .sub { display: block; font-size: 0.65rem; color: rgba(255,255,255,0.45); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.15rem; }
+
+    .doc-meta { text-align: right; }
+    .doc-meta .label { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.3rem; }
+    .doc-meta .value { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.9rem; color: rgba(255,255,255,0.5); }
+
+    .title-block { padding: 0 3.5rem 2.5rem; position: relative; }
+    .eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+    .eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+    h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3.5rem; font-weight: 300; color: #fff; line-height: 1.0; letter-spacing: -0.01em; }
+    .subtitle { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.4); margin-top: 0.5rem; }
+
+    .rule { height: 1px; background: rgba(255,255,255,0.08); margin: 0 3.5rem; }
+
+    /* ── Guide content ── */
+    .guide-body {
+      padding: 2rem 3.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .guide-section {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .guide-section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    .checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      margin-top: 0.5rem;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.5;
+    }
+
+    .check-item::before {
+      content: '—';
+      color: var(--red);
+      flex-shrink: 0;
+      font-size: 0.75rem;
+      margin-top: 0.05rem;
+    }
+
+    /* ── Footer ── */
+    .doc-footer {
+      padding: 1.25rem 3.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .doc-footer p { font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
+    .doc-footer .url { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+
+    /* ── Print ── */
+    @media print {
+      body { background: none; }
+      .screen-header { display: none; }
+      .page { margin: 0; width: 210mm; min-height: 297mm; box-shadow: none; }
+      @page { size: A4; margin: 0; }
+    }
+
+    @media (max-width: 700px) {
+      .page { width: 100%; margin: 0; }
+      .doc-header, .title-block, .guide-body, .doc-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .rule { margin: 0 1.5rem; }
+      h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-header">
+    <a href="/">← Dojo Zen de Lisboa</a>
+    <button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+  </div>
+
+  <div class="page">
+    <div class="bg-kanji">禅</div>
+    <div class="top-bar"></div>
+
+    <div class="doc-header">
+      <div class="logo-wrap">
+        <div class="seal"><span>禅</span></div>
+        <div class="logo-text">
+          <span class="name">Dojo Zen de Lisboa</span>
+          <span class="sub">Ryūmonji · desde 1997</span>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <span class="label">Tradição</span>
+        <span class="value">Soto Zen · AZI</span>
+      </div>
+    </div>
+
+    <div class="title-block">
+      <div class="eyebrow">Primeiros Passos</div>
+      <h1>Guia de<br>Iniciação</h1>
+      <p class="subtitle">Tudo o que precisa de saber antes da primeira sessão</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="guide-body">
+
+      <div class="guide-section">
+        <div class="section-label">Antes de vir</div>
+        <div class="checklist">
+          <div class="check-item">Não é necessária inscrição prévia para as sessões regulares.</div>
+          <div class="check-item">Chegue 15 minutos antes — tempo para ser recebido e orientado.</div>
+          <div class="check-item">Vista roupa confortável e solta, preferencialmente em tons escuros.</div>
+          <div class="check-item">Evite refeições pesadas nas duas horas anteriores.</div>
+          <div class="check-item">A sessão de sábado às 11h00 é a mais indicada para uma primeira visita.</div>
+        </div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">A Postura</div>
+        <div class="section-body">Sentado num zafu (almofada) ou cadeira, coluna vertebral erecta e natural, joelhos apoiados, mãos em <em>hokkaijoin</em> no colo, olhos semi-fechados. A respiração é suave, profunda, abdominal.</div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">Durante a Sessão</div>
+        <div class="section-body">Cada sessão inclui períodos de Zazen sentado e Kinhin — a meditação a caminhar. Não há instrução contínua. Senta-se em silêncio. Os pensamentos surgem — deixe-os passar sem os perseguir.</div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">O Silêncio</div>
+        <div class="section-body">O dojo é um espaço de silêncio que acolhe. Não é necessário fazer perguntas durante a sessão. Depois, há tempo para conversar e esclarecer dúvidas.</div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">Custos</div>
+        <div class="section-body">€5 por sessão para não sócios. A quota anual de sócio é de €25, permitindo participar em todas as sessões regulares sem custo adicional.</div>
+      </div>
+
+    </div>
+
+    <div class="rule" style="margin-bottom:1.25rem;"></div>
+
+    <div class="doc-footer">
+      <p>Rua Luciano Cordeiro nº 49 CV–Dtº · 1150-212 Lisboa · Metro: Marquês de Pombal</p>
+      <span class="url">dojozenlisboa.com</span>
+    </div>
+  </div>
+
+</body>
+</html>
