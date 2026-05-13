@@ -1032,6 +1032,9 @@ footer {
   .teaching-sidebar { display: none; }
   .teaching-layout { grid-template-columns: 1fr; }
 
+  /* Global rule: any .col-2 card/content grid → single column */
+  .col-2 { grid-template-columns: 1fr !important; }
+
   /* Page hero */
   .page-hero h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }
 
