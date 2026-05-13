@@ -22,7 +22,7 @@
     }
 
     body {
-      background: var(--paper);
+      background: #2a2520;
       color: var(--ink);
       font-family: 'Inter', system-ui, sans-serif;
       min-height: 100vh;
@@ -51,7 +51,7 @@
     }
     .print-btn:hover { background: #d4503c; }
 
-    /* ── Print page ── */
+    /* ── A4 page ── */
     .page {
       width: 210mm;
       min-height: 297mm;
@@ -61,7 +61,9 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      page-break-after: always;
     }
+    .page:last-of-type { page-break-after: auto; margin-bottom: 2rem; }
 
     .bg-kanji {
       position: absolute;
@@ -76,14 +78,10 @@
       user-select: none;
     }
 
-    .top-bar {
-      background: var(--red);
-      height: 6px;
-      width: 100%;
-    }
+    .top-bar { background: var(--red); height: 6px; width: 100%; }
 
     .doc-header {
-      padding: 3rem 3.5rem 2.5rem;
+      padding: 2.5rem 3.5rem 2rem;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -91,31 +89,26 @@
     }
 
     .logo-wrap { display: flex; align-items: center; gap: 1rem; }
-    .seal {
-      width: 48px; height: 48px;
-      background: var(--red);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .seal span { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.6rem; color: #fff; line-height: 1; }
-    .logo-text .name { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.15rem; color: #fff; font-weight: 400; letter-spacing: 0.02em; line-height: 1.2; }
-    .logo-text .sub { display: block; font-size: 0.65rem; color: rgba(255,255,255,0.45); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.15rem; }
+    .seal { width: 44px; height: 44px; background: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .seal span { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; color: #fff; line-height: 1; }
+    .logo-text .name { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; color: #fff; font-weight: 400; letter-spacing: 0.02em; line-height: 1.2; }
+    .logo-text .sub { display: block; font-size: 0.6rem; color: rgba(255,255,255,0.4); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.15rem; }
 
     .doc-meta { text-align: right; }
-    .doc-meta .label { font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.3rem; }
-    .doc-meta .value { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.9rem; color: rgba(255,255,255,0.5); }
+    .doc-meta .label { font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.25rem; }
+    .doc-meta .value { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.85rem; color: rgba(255,255,255,0.45); }
 
-    .title-block { padding: 0 3.5rem 2.5rem; position: relative; }
-    .eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+    .title-block { padding: 0 3.5rem 2rem; position: relative; }
+    .eyebrow { font-size: 0.56rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.75rem; }
     .eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
-    h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3.5rem; font-weight: 300; color: #fff; line-height: 1.0; letter-spacing: -0.01em; }
-    .subtitle { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.4); margin-top: 0.5rem; }
+    h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; font-weight: 300; color: #fff; line-height: 1.0; letter-spacing: -0.01em; }
+    .subtitle { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.38); margin-top: 0.4rem; }
 
     .rule { height: 1px; background: rgba(255,255,255,0.08); margin: 0 3.5rem; }
 
     /* ── Guide content ── */
     .guide-body {
-      padding: 2rem 3.5rem;
+      padding: 1.75rem 3.5rem;
       flex: 1;
       display: flex;
       flex-direction: column;
@@ -123,67 +116,79 @@
     }
 
     .guide-section {
-      padding: 1.25rem 0;
+      padding: 1rem 0;
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .guide-section:last-child { border-bottom: none; }
 
     .section-label {
-      font-size: 0.55rem;
+      font-size: 0.52rem;
       letter-spacing: 0.28em;
       text-transform: uppercase;
       color: var(--gold);
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.5rem;
     }
 
     .section-title {
       font-family: 'Cormorant Garamond', Georgia, serif;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 400;
       color: #fff;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
       line-height: 1.2;
     }
 
     .section-body {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: rgba(255,255,255,0.5);
       line-height: 1.7;
     }
 
-    .checklist {
-      display: flex;
-      flex-direction: column;
-      gap: 0.35rem;
+    .section-body em { color: rgba(255,255,255,0.65); font-style: italic; }
+    .section-body strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+    .checklist { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.4rem; }
+    .check-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .check-item::before { content: '—'; color: var(--red); flex-shrink: 0; font-size: 0.75rem; margin-top: 0.05rem; }
+
+    /* ── Two-column layout for page 2 ── */
+    .two-col {
+      padding: 1.75rem 3.5rem;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2.5rem;
+      align-content: start;
+    }
+
+    .col-section {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .col-section:last-child { border-bottom: none; }
+
+    .col-section .section-label { font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .col-section .section-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.05rem; font-weight: 400; color: #fff; margin-bottom: 0.3rem; line-height: 1.2; }
+    .col-section .section-body { font-size: 0.78rem; color: rgba(255,255,255,0.48); line-height: 1.65; }
+    .col-section .section-body em { color: rgba(255,255,255,0.62); font-style: italic; }
+
+    .col-divider { grid-column: 1 / -1; height: 1px; background: rgba(255,255,255,0.08); margin: 0.5rem 0; }
+
+    .span-full { grid-column: 1 / -1; }
+
+    /* ── Mudra diagram placeholder ── */
+    .mudra-box {
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 0.75rem;
+      text-align: center;
       margin-top: 0.5rem;
     }
-
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
-      line-height: 1.5;
-    }
-
-    .check-item::before {
-      content: '—';
-      color: var(--red);
-      flex-shrink: 0;
-      font-size: 0.75rem;
-      margin-top: 0.05rem;
-    }
+    .mudra-kanji { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.5rem; color: rgba(255,255,255,0.15); line-height: 1; display: block; }
 
     /* ── Footer ── */
-    .doc-footer {
-      padding: 1.25rem 3.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .doc-footer p { font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 0.05em; }
-    .doc-footer .url { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: rgba(255,255,255,0.3); font-size: 0.8rem; }
+    .doc-footer { padding: 1rem 3.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; }
+    .doc-footer p { font-size: 0.62rem; color: rgba(255,255,255,0.2); letter-spacing: 0.04em; }
+    .doc-footer .url { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: rgba(255,255,255,0.3); font-size: 0.78rem; }
 
     /* ── Print ── */
     @media print {
@@ -194,10 +199,12 @@
     }
 
     @media (max-width: 700px) {
-      .page { width: 100%; margin: 0; }
-      .doc-header, .title-block, .guide-body, .doc-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .page { width: 100%; margin: 0 0 1rem; }
+      .doc-header, .title-block, .guide-body, .two-col, .doc-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       .rule { margin: 0 1.5rem; }
-      h1 { font-size: 2.5rem; }
+      h1 { font-size: 2.25rem; }
+      .two-col { grid-template-columns: 1fr; }
+      .col-divider { display: none; }
     }
   </style>
 </head>
@@ -208,6 +215,7 @@
     <button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
   </div>
 
+  <!-- PAGE 1 — Before you arrive -->
   <div class="page">
     <div class="bg-kanji">禅</div>
     <div class="top-bar"></div>
@@ -240,21 +248,21 @@
         <div class="section-label">Antes de vir</div>
         <div class="checklist">
           <div class="check-item">Se ainda não frequentou uma sessão de iniciação, contacte o dojo com antecedência — não é possível aparecer sem aviso prévio.</div>
-          <div class="check-item">Chegue 15 minutos antes — tempo para ser recebido e orientado.</div>
-          <div class="check-item">Vista roupa confortável e solta, preferencialmente em tons escuros.</div>
-          <div class="check-item">Evite refeições pesadas nas duas horas anteriores.</div>
+          <div class="check-item">Chegue 15 minutos antes — tempo para ser recebido e orientado antes de a sessão começar.</div>
+          <div class="check-item">Vista roupa confortável e solta, preferencialmente em tons escuros ou neutros.</div>
+          <div class="check-item">Evite refeições pesadas nas duas horas anteriores à sessão.</div>
           <div class="check-item">A sessão de sábado às 11h00 é a mais indicada para uma primeira visita.</div>
         </div>
       </div>
 
       <div class="guide-section">
-        <div class="section-label">A Postura</div>
-        <div class="section-body">Sentado num zafu (almofada) ou cadeira, coluna vertebral erecta e natural, joelhos apoiados, mãos em <em>hokkaijoin</em> no colo, olhos semi-fechados. A respiração é suave, profunda, abdominal.</div>
+        <div class="section-label">Entrar no zendo</div>
+        <div class="section-body">Ao entrar, faça uma vénia (<em>gassho</em>) na entrada — mãos juntas à altura do peito, cabeça ligeiramente inclinada. Durante todos os deslocamentos no dojo, mantenha as mãos em <em>shashu</em>: a mão esquerda fechada, polegar no interior, coberta pela mão direita por fora. A sessão começa desde que se entra.</div>
       </div>
 
       <div class="guide-section">
-        <div class="section-label">Durante a Sessão</div>
-        <div class="section-body">Cada sessão inclui períodos de Zazen sentado e Kinhin — a meditação a caminhar. Não há instrução contínua. Senta-se em silêncio. Os pensamentos surgem — deixe-os passar sem os perseguir.</div>
+        <div class="section-label">Durante a sessão</div>
+        <div class="section-body">Cada sessão inclui períodos de Zazen sentado e <em>Kinhin</em> — a meditação a caminhar. Não há instrução contínua. Senta-se em silêncio. Os pensamentos surgem — deixe-os passar sem os perseguir. O sino marca os momentos de transição.</div>
       </div>
 
       <div class="guide-section">
@@ -264,12 +272,128 @@
 
       <div class="guide-section">
         <div class="section-label">Custos</div>
-        <div class="section-body">€5 por sessão para não sócios. A quota anual de sócio é de €25, permitindo participar em todas as sessões regulares sem custo adicional.</div>
+        <div class="section-body">€5 por sessão para não sócios. A quota anual de sócio é de €25, permitindo participar em todas as sessões regulares sem custo adicional. <strong>Por favor traga pagamento em numerário.</strong></div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">Horário — Lisboa</div>
+        <div class="section-body" style="display:grid; grid-template-columns:1fr 1fr; gap:0.25rem 2rem; margin-top:0.25rem;">
+          <span>Segunda · Quinta</span><span style="color:var(--red); font-family:'Cormorant Garamond',Georgia,serif; font-size:0.95rem;">19h30</span>
+          <span>Terça · Quarta · Sexta</span><span style="color:var(--red); font-family:'Cormorant Garamond',Georgia,serif; font-size:0.95rem;">07h15</span>
+          <span>Sábado</span><span style="color:var(--red); font-family:'Cormorant Garamond',Georgia,serif; font-size:0.95rem;">11h00</span>
+        </div>
       </div>
 
     </div>
 
-    <div class="rule" style="margin-bottom:1.25rem;"></div>
+    <div class="rule" style="margin-bottom:1rem;"></div>
+
+    <div class="doc-footer">
+      <p>Rua Luciano Cordeiro nº 49 CV–Dtº · 1150-212 Lisboa · Metro: Marquês de Pombal</p>
+      <span class="url">dojozenlisboa.com</span>
+    </div>
+  </div>
+
+  <!-- PAGE 2 — The practice -->
+  <div class="page">
+    <div class="bg-kanji">坐</div>
+    <div class="top-bar"></div>
+
+    <div class="doc-header">
+      <div class="logo-wrap">
+        <div class="seal"><span>禅</span></div>
+        <div class="logo-text">
+          <span class="name">Dojo Zen de Lisboa</span>
+          <span class="sub">Ryūmonji · desde 1997</span>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <span class="label">Página</span>
+        <span class="value">2 de 2</span>
+      </div>
+    </div>
+
+    <div class="title-block" style="padding-bottom:1.5rem;">
+      <div class="eyebrow">A Prática do Zazen</div>
+      <h1>Postura,<br>Respiração<br>&amp; Mente</h1>
+      <p class="subtitle">O que acontece quando se senta</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="two-col">
+
+      <div class="col-section">
+        <div class="section-label">Posições de sentado</div>
+        <div class="section-title">Kekkafuza · Hankafuza · Cadeira</div>
+        <div class="section-body"><em>Kekkafuza</em> (lótus completo): pé esquerdo sobre a coxa direita, pé direito sobre a coxa esquerda. <em>Hankafuza</em> (meio lótus): apenas um pé sobre a coxa oposta. <strong>Cadeira</strong>: sente-se na borda, pés no chão, sem apoiar no encosto. Em qualquer posição, os dois joelhos e o cóccix formam uma base sólida de três pontos.</div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-label">Sayu-yoshin — o balanceamento</div>
+        <div class="section-title">Encontrar o centro</div>
+        <div class="section-body">Antes de assumir a postura estável, balance suavemente da direita para a esquerda com amplitudes decrescentes — como um pêndulo que perde força. O corpo encontra assim o seu centro de gravidade natural. Uma vez encontrado, não se move.</div>
+      </div>
+
+      <div class="col-divider"></div>
+
+      <div class="col-section">
+        <div class="section-label">Hokkai-join — o mudra</div>
+        <div class="section-title">A posição das mãos</div>
+        <div class="section-body">Mão esquerda sobre a mão direita, dedos sobrepostos, polegares levemente em contacto formando um oval. As mãos repousam no colo, abaixo do umbigo, tocando o abdómen. Cotovelos ligeiramente afastados do corpo. O oval deve ser mantido — nem tenso nem colapsado. É espelho da mente.</div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-label">A postura</div>
+        <div class="section-title">A coluna vertebral</div>
+        <div class="section-body">Coluna erecta e natural — imagine que o topo da cabeça é puxado suavemente para cima. Ombros relaxados para baixo e para trás. Queixo ligeiramente recuado, nuca alongada. O ventre não é retraído — expande suavemente com a inalação. A postura correcta não é rígida; é viva.</div>
+      </div>
+
+      <div class="col-divider"></div>
+
+      <div class="col-section">
+        <div class="section-label">Boca e respiração</div>
+        <div class="section-title">O ritmo natural</div>
+        <div class="section-body">Boca fechada, língua tocando suavemente o palato superior. Respiração pelo nariz — suave, mais longa na expiração do que na inalação. Não se controla: observa-se. A atenção pode repousar no movimento do abdómen. Não é necessário contar respirações.</div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-label">Os olhos</div>
+        <div class="section-title">Semi-abertos</div>
+        <div class="section-body">Olhos semi-abertos — nem fechados (sonolência) nem abertos (dispersão). O olhar dirige-se ligeiramente para baixo, a cerca de um metro à frente, sem focar nada em particular. Aberto ao mundo mas não capturado por ele.</div>
+      </div>
+
+      <div class="col-divider"></div>
+
+      <div class="col-section">
+        <div class="section-label">Kanki-issoku</div>
+        <div class="section-title">O primeiro sopro</div>
+        <div class="section-body">Depois de assumir postura e mudra, uma expiração completa e longa que esvazia o corpo e a mente de tudo o que se carregou até ao dojo. Do lado de cá, a vida quotidiana. Do lado de lá, apenas sentar. Este sopro é o limiar.</div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-label">A arte do Zazen</div>
+        <div class="section-title">A mente</div>
+        <div class="section-body">A mente pensa — é a sua natureza. O Zazen não pede que pare: pede que não a sigamos. Os pensamentos surgem como nuvens. Não os persiga, não os rejeite. Volte à postura, à respiração, ao momento presente. Este regresso — vezes sem conta — é a prática.</div>
+      </div>
+
+      <div class="col-divider"></div>
+
+      <div class="col-section">
+        <div class="section-label">Kinhin</div>
+        <div class="section-title">A meditação a caminhar</div>
+        <div class="section-body">Ao sinal do sino, levante-se com cuidado, faça gassho, e caminhe em fila em torno do zendo. Mãos em shashu sobre o peito. Cada passo é deliberado: calcanhar, planta, dedos. A mesma qualidade de atenção do Zazen sentado — agora em movimento.</div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-label">Fim do Zazen</div>
+        <div class="section-title">Sair da postura</div>
+        <div class="section-body">Ao sinal do sino final, repita o sayu-yoshin suavemente para desfazer a postura. Estenda as pernas com cuidado. Faça gassho ao lugar e depois ao interior do zendo. Ao sair, gassho na entrada. A prática não termina aqui — continua na rua.</div>
+      </div>
+
+    </div>
+
+    <div class="rule" style="margin-bottom:1rem;"></div>
 
     <div class="doc-footer">
       <p>Rua Luciano Cordeiro nº 49 CV–Dtº · 1150-212 Lisboa · Metro: Marquês de Pombal</p>
