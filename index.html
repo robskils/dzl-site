@@ -43,6 +43,14 @@
       --gold:     #b8945a;
     }
 
+    /* Night overrides for hardcoded rgba values */
+    html.night #site-header         { background: rgba(14, 13, 11, 0.0); }
+    html.night #site-header.scrolled { background: rgba(14, 13, 11, 0.96); backdrop-filter: blur(16px); }
+    html.night .dropdown            { background: rgba(14, 13, 11, 0.98); border-color: rgba(221,215,204,0.1); }
+    html.night .dropdown a          { color: rgba(221, 215, 204, 0.65) !important; }
+    html.night .dropdown a:hover    { color: var(--ink) !important; background: var(--ink-2); }
+    html.night .mobile-nav          { background: rgba(14, 13, 11, 0.98); }
+
     /* Night toggle */
     .night-toggle {
       background: none;
