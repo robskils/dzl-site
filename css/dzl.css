@@ -1059,8 +1059,6 @@ footer {
 .parallax-wrap {
   position: relative;
   overflow: hidden;
-  clip-path: inset(0);          /* clips GPU-composited children that escape overflow:hidden */
-  isolation: isolate;
 }
 
 .parallax-wrap .parallax-img {
