@@ -49,6 +49,10 @@ html.night .dropdown a         { color: rgba(221, 215, 204, 0.65) !important; }
 html.night .dropdown a:hover   { color: var(--ink) !important; background: var(--paper-3); }
 html.night .mobile-nav         { background: rgba(14, 13, 11, 0.98); }
 
+/* Night: kanji / decorative characters */
+html.night .person-photo-fill span { color: rgba(196, 65, 46, 0.4); }
+html.night .kanji-watermark        { color: rgba(196, 65, 46, 0.3) !important; }
+
 /* Night toggle button */
 .night-toggle {
   background: none;
