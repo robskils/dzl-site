@@ -6,6 +6,7 @@
   <title>Dojo Zen de Lisboa – Ryumonji</title>
   <meta name="description" content="O Ryumonji é um dojo da tradição Soto Zen em Lisboa. Seis sessões semanais de Zazen, aberto a todos, desde 1997.">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>(function(){var s=localStorage.getItem('dzl-night'),h=new Date().getHours();if(s==='1'||(s===null&&(h>=21||h<7)))document.documentElement.classList.add('night')})()</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
@@ -26,6 +27,42 @@
       --font-serif: 'Cormorant Garamond', Georgia, serif;
       --font-sans:  'Inter', system-ui, sans-serif;
     }
+
+    /* ── Night mode ── */
+    html { transition: background-color 0.35s ease, color 0.35s ease; }
+
+    html.night {
+      --paper:    #0e0d0b;
+      --ink:      #ddd7cc;
+      --ink-2:    #1a1815;
+      --ink-3:    #201d18;
+      --stone:    #0e0d0b;
+      --mist:     rgba(221, 215, 204, 0.5);
+      --ghost:    rgba(221, 215, 204, 0.05);
+      --rule:     rgba(221, 215, 204, 0.1);
+      --gold:     #b8945a;
+    }
+
+    /* Night toggle */
+    .night-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--mist);
+      padding: 0.5rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+      position: relative;
+      z-index: 101;
+      -webkit-tap-highlight-color: transparent;
+      flex-shrink: 0;
+    }
+    .night-toggle:hover { color: var(--gold); }
+    .night-toggle .icon-sun { display: none; }
+    html.night .night-toggle .icon-moon { display: none; }
+    html.night .night-toggle .icon-sun { display: block; }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -256,9 +293,13 @@
     @media (max-width: 900px) {
       nav { display: none; }
       .hamburger { display: block; }
+      .night-toggle { display: flex; margin-right: 0.25rem; }
       .footer-main { grid-template-columns: 1fr; gap: 2rem; padding: 3.5rem 0 3rem; }
       .footer-brand { grid-column: 1; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 0; }
+    }
+    @media (min-width: 901px) {
+      .night-toggle { display: flex; margin-left: 1.5rem; }
     }
 
     /* ── HERO ── */

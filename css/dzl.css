@@ -24,6 +24,55 @@
   --font-sans:  'Inter', system-ui, sans-serif;
 }
 
+/* ── Night mode ── */
+html {
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+html.night {
+  --paper:     #0e0d0b;
+  --paper-2:   #131210;
+  --paper-3:   #1a1815;
+  --ink:       #ddd7cc;
+  --stone:     #ddd7cc;
+  --mist:      rgba(221, 215, 204, 0.5);
+  --ghost:     rgba(221, 215, 204, 0.05);
+  --rule:      rgba(221, 215, 204, 0.1);
+  --gold:      #b8945a;
+}
+
+/* Night toggle button */
+.night-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--mist);
+  padding: 0.5rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  position: relative;
+  z-index: 101;
+  -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;
+}
+
+.night-toggle:hover { color: var(--gold); }
+.night-toggle .icon-sun { display: none; }
+
+html.night .night-toggle { color: var(--mist); }
+html.night .night-toggle .icon-moon { display: none; }
+html.night .night-toggle .icon-sun { display: block; }
+
+@media (max-width: 900px) {
+  .night-toggle { display: flex; margin-right: 0.25rem; }
+}
+
+@media (min-width: 901px) {
+  .night-toggle { display: flex; margin-left: 1.5rem; }
+}
+
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -907,7 +956,7 @@ footer {
   .form-grid { grid-template-columns: 1fr; }
   .form-field.full { grid-column: 1; }
 
-  .info-grid { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr !important; }
 
   .event-item {
     grid-template-columns: 4rem 1fr;
