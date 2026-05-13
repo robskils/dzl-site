@@ -898,6 +898,20 @@ footer {
   /* Page hero */
   .page-hero h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }
 
+  /* Info cards (Contactos) — clean stacked list */
+  .info-grid {
+    background: transparent;
+    border: none;
+    gap: 0;
+  }
+  .info-card {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .info-card:first-child {
+    border-top: 1px solid var(--rule);
+  }
+
   /* Footer */
   .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 0; }
 }
