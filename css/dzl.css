@@ -1030,6 +1030,7 @@ footer {
   /* Teaching cards grid */
   .teaching-cards { grid-template-columns: 1fr !important; }
   .teaching-sidebar { display: none; }
+  .teaching-layout { grid-template-columns: 1fr; }
 
   /* Page hero */
   .page-hero h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }
