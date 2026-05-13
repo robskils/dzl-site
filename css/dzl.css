@@ -1042,6 +1042,28 @@ footer {
   .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 0; }
 }
 
+/* ── Parallax image sections ── */
+.parallax-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-wrap .parallax-img {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .parallax-wrap .parallax-img {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    height: 260px !important;
+  }
+}
+
 @media (max-width: 600px) {
   .container, .container-narrow { padding: 0 1.25rem; }
 

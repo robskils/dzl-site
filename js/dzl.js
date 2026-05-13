@@ -43,6 +43,34 @@ if (ham && mobileNav) {
   });
 }
 
+// ── Parallax image sections ────────────────────────────────
+(function () {
+  const imgs = document.querySelectorAll('.parallax-img');
+  if (!imgs.length) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(max-width: 768px)').matches) return;
+
+  const SPEED = 0.2;
+  let ticking = false;
+
+  function update() {
+    imgs.forEach(img => {
+      const wrap = img.parentElement;
+      const rect = wrap.getBoundingClientRect();
+      if (rect.bottom < -200 || rect.top > window.innerHeight + 200) return;
+      const mid = rect.top + rect.height / 2 - window.innerHeight / 2;
+      img.style.transform = `translateY(calc(-50% + ${(mid * SPEED).toFixed(2)}px))`;
+    });
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+
+  update();
+}());
+
 // ── Fade-up on scroll ───────────────────────────────────────
 const fadeEls = document.querySelectorAll('.fade-up');
 if (fadeEls.length) {
