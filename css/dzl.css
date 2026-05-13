@@ -42,6 +42,12 @@ html.night {
 }
 
 /* Night mode overrides for hardcoded rgba values */
+html.night nav > a,
+html.night nav .nav-item > a  { color: rgba(221, 215, 204, 0.7); }
+html.night nav > a:hover,
+html.night nav > a.active,
+html.night nav .nav-item:hover > a { color: var(--ink); }
+html.night .mobile-nav a      { color: rgba(221, 215, 204, 0.75); }
 html.night #site-header       { background: rgba(14, 13, 11, 0.94); }
 html.night #site-header.scrolled { background: rgba(14, 13, 11, 0.96); }
 html.night .dropdown           { background: rgba(14, 13, 11, 0.98); border-color: rgba(221,215,204,0.1); }
