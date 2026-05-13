@@ -274,6 +274,25 @@
         var(--paper);
     }
 
+    .hero-bg-art {
+      position: absolute;
+      right: 7%;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 82%;
+      pointer-events: none;
+      opacity: 0.42;
+      filter: sepia(6%) contrast(87%) brightness(1.03);
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 22%);
+      mask-image: linear-gradient(to right, transparent 0%, black 22%);
+    }
+
+    .hero-bg-art img {
+      height: 100%;
+      width: auto;
+      display: block;
+    }
+
     /* Subtle noise — inherited from body background-image */
 
     /* Floral/atmospheric right-side glow — placeholder for photography */
@@ -1153,7 +1172,7 @@
         <span class="sub">Ryūmonji</span>
       </div>
     </a>
-    <nav><div class="nav-item has-dropdown"><a href="/meditacao/">Praticar</a><div class="dropdown"><a href="/meditacao/">Zazen em Lisboa</a><a href="/iniciacao-zen/">Iniciação Zen</a><a href="/porto/">Zazen em Porto</a><a href="/aveiro/">Zazen em Aveiro</a><a href="/estadia-em-seikyuji/">Estadia em Seikyuji</a></div></div><div class="nav-item has-dropdown"><a href="/o-que-e-o-zen/">O Dojo</a><div class="dropdown"><a href="/o-que-e-o-zen/">O que é o Zen?</a><a href="/mestres/">Mestres</a><a href="/historia/">História</a><a href="/contribuir/">Contribuir</a></div></div><div class="nav-item has-dropdown"><a href="/sutras/">Ensinamentos</a><div class="dropdown"><a href="/sutras/">Sutras</a><a href="/kusen/">Kusen</a><a href="/teisho/">Teisho</a><a href="/historias-zen/">Histórias Zen</a><a href="/questoes-zen/">Questões Zen</a><a href="/perguntas-ao-mestre/">Perguntas ao Mestre</a><a href="/videos/">Vídeos</a><a href="/documentos/">Documentos</a></div></div><a href="/eventos/">Eventos</a><a href="/contactos/">Contactos</a></nav>
+    <nav><div class="nav-item has-dropdown"><a href="/meditacao/">Praticar</a><div class="dropdown"><a href="/meditacao/">Zazen em Lisboa</a><a href="/iniciacao-zen/">Iniciação Zen</a><a href="/porto/">Zazen em Porto</a><a href="/aveiro/">Zazen em Aveiro</a><a href="/estadia-em-seikyuji/">Estadia em Seikyuji</a></div></div><div class="nav-item has-dropdown"><a href="/o-que-e-o-zen/">O Dojo</a><div class="dropdown"><a href="/o-que-e-o-zen/">O que é o Zen?</a><a href="/mestres/">Mestres</a><a href="/historia/">História</a><a href="/contribuir/">Contribuir</a></div></div><div class="nav-item has-dropdown"><a href="/ensinamentos/">Ensinamentos</a><div class="dropdown"><a href="/sutras/">Sutras</a><a href="/kusen/">Kusen</a><a href="/teisho/">Teisho</a><a href="/historias-zen/">Histórias Zen</a><a href="/questoes-zen/">Questões Zen</a><a href="/perguntas-ao-mestre/">Perguntas ao Mestre</a><a href="/videos/">Vídeos</a><a href="/documentos/">Documentos</a></div></div><a href="/eventos/">Eventos</a><a href="/contactos/">Contactos</a></nav>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 6h16M3 11h16M3 16h16"/></svg></button>
   </header>
   <div class="mobile-nav" id="mobile-nav">
@@ -1185,6 +1204,9 @@
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg"></div>
+    <div class="hero-bg-art">
+      <img src="https://images.metmuseum.org/CRDImages/as/original/DP154073.jpg" alt="" loading="lazy">
+    </div>
     <div class="hero-right-glow"></div>
     <div class="hero-shikantaza">
       <span>只</span>
@@ -1198,7 +1220,7 @@
         <h1>Dojo Zen<br>de Lisboa.</h1>
         <p class="hero-sub">Um lugar de prática silenciosa, fundado em 1997 pelo Mestre Raphaël Doko Triet. Sente-se. Respira. Acorda.</p>
         <div class="hero-actions">
-          <a href="/eventos/" class="btn-red">Próximos eventos →</a>
+          <a href="/meditacao/#horario" class="btn-red">Ver horário →</a>
           <a href="/iniciacao-zen/" class="btn-outline">Iniciar a meditação</a>
         </div>
         <div class="hero-scroll">
@@ -1251,6 +1273,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- SCHEDULE -->
   <section class="section-schedule" id="horario">
@@ -1417,17 +1440,13 @@
     </div>
   </section>
 
+
   <!-- ART -->
-  <section style="padding:0; overflow:hidden;">
-    <figure style="margin:0;">
-      <img src="https://images.metmuseum.org/CRDImages/as/original/DP-36543-002.jpg"
-           alt="Paisagem com Pavilhão, Kenkō Shōkei, séc. XV"
-           loading="lazy"
-           style="width:100%; height:420px; object-fit:cover; object-position:center 15%; display:block; filter:sepia(8%) contrast(90%) brightness(1.04);">
-      <figcaption style="display:flex; justify-content:flex-end; padding:0.65rem 2.5rem; background:var(--ink-2);">
-        <span style="font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(28,24,18,0.35);">Kenkō Shōkei · Paisagem com Pavilhão · séc. XV · The Metropolitan Museum of Art</span>
-      </figcaption>
-    </figure>
+  <section style="margin:0; padding:0; line-height:0; overflow:hidden;">
+    <img src="https://images.metmuseum.org/CRDImages/as/original/DP-36543-002.jpg"
+         alt=""
+         loading="lazy"
+         style="width:100%; height:380px; object-fit:cover; object-position:center 20%; display:block; filter:sepia(15%) contrast(82%) brightness(1.08);">
   </section>
 
   <!-- MASTERS -->
@@ -1440,10 +1459,10 @@
       <div class="masters-grid">
         <div class="master-card">
           <div class="master-portrait">
-            <div class="master-portrait-fill"><span>道</span></div>
+            <img src="/images/mestres/doko-triet.jpg" alt="Raphaël Doko Triet" style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
           <div>
-            <div class="master-role-tag">Mestre</div>
+            <div class="master-role-tag">Mestre · Fundador</div>
             <div class="master-name">Raphaël Doko Triet</div>
             <div class="master-title">Mestre Zen · Fundador do Ryumonji</div>
             <p class="master-bio">Fundou o Dojo Zen de Lisboa em 1997, estabelecendo em Portugal uma linhagem autêntica da tradição Soto Zen. Discípulo de Taïsen Deshimaru, dedicou décadas à transmissão rigorosa e acessível do Zazen na Europa.</p>
@@ -1451,10 +1470,10 @@
         </div>
         <div class="master-card">
           <div class="master-portrait">
-            <div class="master-portrait-fill"><span>心</span></div>
+            <img src="/images/mestres/shoshin-crettaz.jpg" alt="Yves Shoshin Crettaz" style="width:100%; height:100%; object-fit:cover; display:block;">
           </div>
           <div>
-            <div class="master-role-tag">Mestre</div>
+            <div class="master-role-tag">Mestre · Director</div>
             <div class="master-name">Yves Shoshin Crettaz</div>
             <div class="master-title">Mestre Zen · Director do Ryumonji</div>
             <p class="master-bio">Dirige o Ryumonji mantendo a prática diária aberta, rigorosa e acessível. Orienta os praticantes com clareza e proximidade, preservando a essência da transmissão Soto na sua integridade.</p>

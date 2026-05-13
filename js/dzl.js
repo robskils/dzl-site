@@ -22,14 +22,15 @@ if (fadeEls.length) {
   fadeEls.forEach(el => io.observe(el));
 }
 
-// Contact form
-const form = document.getElementById('contact-form');
-if (form) {
+// Ajax forms — handles contact-form and any .ajax-form
+document.querySelectorAll('#contact-form, .ajax-form').forEach(form => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = form.querySelector('[type=submit]');
-    const success = document.getElementById('form-success');
-    const errBox  = document.getElementById('form-error-box');
+    const wrap = form.closest('[data-form-wrap]') || form.parentElement;
+    const success = wrap.querySelector('.form-success');
+    const errBox  = wrap.querySelector('.form-error-box');
+    const origLabel = btn.textContent;
     btn.disabled = true;
     btn.textContent = 'A enviar…';
     errBox && (errBox.style.display = 'none');
@@ -49,8 +50,8 @@ if (form) {
       }
     } catch {
       btn.disabled = false;
-      btn.textContent = 'Enviar mensagem';
+      btn.textContent = origLabel;
       if (errBox) errBox.style.display = 'block';
     }
   });
-}
+});

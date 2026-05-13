@@ -76,6 +76,13 @@ body {
 
 .text-link:hover { gap: 1rem; }
 
+.sutra-row { transition: background 0.15s; }
+.sutra-row:hover { background: var(--ink-2); margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+.sutra-row:hover h3 { color: var(--red); }
+
+.teaching-card:hover { background: var(--ink-2) !important; }
+.teaching-card:hover > div:first-child { color: var(--red); }
+
 /* ── Layout ── */
 .container {
   max-width: 1200px;
