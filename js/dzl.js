@@ -45,21 +45,28 @@ if (ham && mobileNav) {
 
 // ── Parallax image sections ────────────────────────────────
 (function () {
-  const imgs = document.querySelectorAll('.parallax-img');
-  if (!imgs.length) return;
+  const wraps = document.querySelectorAll('.parallax-wrap');
+  if (!wraps.length) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   if (window.matchMedia('(max-width: 768px)').matches) return;
 
-  const SPEED = 0.2;
   let ticking = false;
 
   function update() {
-    imgs.forEach(img => {
-      const wrap = img.parentElement;
+    wraps.forEach(wrap => {
       const rect = wrap.getBoundingClientRect();
       if (rect.bottom < -200 || rect.top > window.innerHeight + 200) return;
       const mid = rect.top + rect.height / 2 - window.innerHeight / 2;
-      img.style.transform = `translateY(calc(-50% + ${(mid * SPEED).toFixed(2)}px))`;
+
+      // Image — slides in same direction as scroll, anchored from centre
+      const img = wrap.querySelector('.parallax-img');
+      if (img) img.style.transform = `translateY(calc(-50% + ${(mid * 0.2).toFixed(2)}px))`;
+
+      // Overlay layers — each drifts at its own speed (negative = counter-scroll)
+      wrap.querySelectorAll('.parallax-layer').forEach(layer => {
+        const speed = parseFloat(layer.dataset.speed || '0');
+        layer.style.transform = `translateY(${(mid * speed).toFixed(2)}px)`;
+      });
     });
     ticking = false;
   }
