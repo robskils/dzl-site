@@ -836,6 +836,69 @@ footer {
 
 .footer-bottom a:hover { color: var(--gold); }
 
+/* ── Teaching section layout (sidebar) ── */
+.teaching-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+
+.teaching-sidebar {
+  position: sticky;
+  top: 7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.teaching-sidebar-item {
+  background: var(--ink-2);
+  padding: 1.5rem;
+  text-decoration: none;
+  display: block;
+  transition: background 0.2s;
+}
+
+.teaching-sidebar-item:hover {
+  background: var(--paper-3);
+}
+
+.teaching-sidebar-item[aria-current="page"] {
+  background: var(--paper);
+  border-left: 2px solid var(--red);
+  pointer-events: none;
+}
+
+.teaching-sidebar-eyebrow {
+  font-size: 0.56rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.teaching-sidebar-title {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--stone);
+}
+
+.teaching-sidebar-title-current {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+
+.teaching-sidebar-desc {
+  font-size: 0.9rem;
+  color: var(--mist);
+  margin-top: 0.3rem;
+  line-height: 1.5;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   nav { display: none; }
@@ -894,6 +957,7 @@ footer {
 
   /* Teaching cards grid */
   .teaching-cards { grid-template-columns: 1fr !important; }
+  .teaching-sidebar { display: none; }
 
   /* Page hero */
   .page-hero h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }

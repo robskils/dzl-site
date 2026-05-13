@@ -56,7 +56,7 @@
   </section>
 
   <section class="section">
-    <div class="container" style="display:grid; grid-template-columns:2fr 1fr; gap:6rem; align-items:start;">
+    <div class="container"><div class="teaching-layout">
       <div class="prose">
         <h2>Uma forma de viver</h2>
         <p>O Mestre Seido Suzuki disse simplesmente: <em>"Zen é uma forma de viver."</em> Uma forma de viver liberta dos três venenos: a ignorância, a ganância e a cólera. Não é uma doutrina a adoptar — é uma prática a encarnar, em cada gesto, em cada momento.</p>
@@ -80,50 +80,59 @@
         <p>Ao mesmo tempo, o Zen não é uma simples técnica de relaxamento. É uma tradição espiritual exigente, com uma ética, uma disciplina e uma visão do ser humano profundamente elaboradas. O que o Zen pede é directo: sentar, respirar, estar presente. O resto revela-se na prática.</p>
       </div>
 
-      <!-- Sidebar links -->
-      <div style="position:sticky; top:7rem; display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule);">
-        <a href="/sutras/" style="background:var(--ink-2); padding:1.5rem; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--paper-3)'" onmouseout="this.style.background='var(--ink-2)'">
-          <div style="font-size:0.56rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Textos</div>
-          <div style="font-family:var(--font-serif); font-size:1.1rem; color:var(--stone);">Sutras</div>
-          <div style="font-size:1rem; color:var(--mist); margin-top:0.3rem;">Os textos sagrados da tradição Zen.</div>
+      <aside class="teaching-sidebar">
+        <a href="/o-que-e-o-zen/" class="teaching-sidebar-item" aria-current="page">
+          <div class="teaching-sidebar-eyebrow">Introdução</div>
+          <div class="teaching-sidebar-title teaching-sidebar-title-current">O que é o Zen?</div>
+          <div class="teaching-sidebar-desc">A tradição Zen, escola Soto e a prática.</div>
         </a>
-        <a href="/kusen/" style="background:var(--ink-2); padding:1.5rem; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--paper-3)'" onmouseout="this.style.background='var(--ink-2)'">
-          <div style="font-size:0.56rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Ensinamento oral</div>
-          <div style="font-family:var(--font-serif); font-size:1.1rem; color:var(--stone);">Kusen</div>
-          <div style="font-size:1rem; color:var(--mist); margin-top:0.3rem;">Palavras transmitidas durante o Zazen.</div>
+        <a href="/sutras/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Textos</div>
+          <div class="teaching-sidebar-title">Sutras</div>
+          <div class="teaching-sidebar-desc">Os textos sagrados da tradição Zen.</div>
         </a>
-        <a href="/teisho/" style="background:var(--ink-2); padding:1.5rem; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--paper-3)'" onmouseout="this.style.background='var(--ink-2)'">
-          <div style="font-size:0.56rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Conferências</div>
-          <div style="font-family:var(--font-serif); font-size:1.1rem; color:var(--stone);">Teisho</div>
-          <div style="font-size:1rem; color:var(--mist); margin-top:0.3rem;">Comentários do Mestre sobre os ensinamentos.</div>
+        <a href="/kusen/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Ensinamento oral</div>
+          <div class="teaching-sidebar-title">Kusen</div>
+          <div class="teaching-sidebar-desc">Palavras transmitidas durante o Zazen.</div>
         </a>
-        <a href="/historias-zen/" style="background:var(--ink-2); padding:1.5rem; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--paper-3)'" onmouseout="this.style.background='var(--ink-2)'">
-          <div style="font-size:0.56rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Narrativas</div>
-          <div style="font-family:var(--font-serif); font-size:1.1rem; color:var(--stone);">Histórias Zen</div>
-          <div style="font-size:1rem; color:var(--mist); margin-top:0.3rem;">Kōans e histórias da tradição.</div>
+        <a href="/teisho/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Conferências</div>
+          <div class="teaching-sidebar-title">Teisho</div>
+          <div class="teaching-sidebar-desc">Comentários do Mestre sobre os ensinamentos.</div>
         </a>
-        <a href="/questoes-zen/" style="background:var(--ink-2); padding:1.5rem; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--paper-3)'" onmouseout="this.style.background='var(--ink-2)'">
-          <div style="font-size:0.56rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Mondō</div>
-          <div style="font-family:var(--font-serif); font-size:1.1rem; color:var(--stone);">Questões Zen</div>
-          <div style="font-size:1rem; color:var(--mist); margin-top:0.3rem;">Perguntas e respostas entre mestre e discípulo.</div>
+        <a href="/historias-zen/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Narrativas</div>
+          <div class="teaching-sidebar-title">Histórias Zen</div>
+          <div class="teaching-sidebar-desc">Kōans e histórias da tradição.</div>
         </a>
-        <a href="/perguntas-ao-mestre/" style="background:var(--ink-2); padding:1.5rem; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--paper-3)'" onmouseout="this.style.background='var(--ink-2)'">
-          <div style="font-size:0.56rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Mestre Shoshin</div>
-          <div style="font-family:var(--font-serif); font-size:1.1rem; color:var(--stone);">Perguntas ao Mestre</div>
-          <div style="font-size:1rem; color:var(--mist); margin-top:0.3rem;">Respostas do Mestre Yves Shoshin Crettaz.</div>
+        <a href="/questoes-zen/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Mondō</div>
+          <div class="teaching-sidebar-title">Questões Zen</div>
+          <div class="teaching-sidebar-desc">Perguntas e respostas entre mestre e discípulo.</div>
         </a>
-        <a href="/oryoki/" style="background:var(--ink-2); padding:1.5rem; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--paper-3)'" onmouseout="this.style.background='var(--ink-2)'">
-          <div style="font-size:0.56rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Cerimónia</div>
-          <div style="font-family:var(--font-serif); font-size:1.1rem; color:var(--stone);">Oryoki</div>
-          <div style="font-size:1rem; color:var(--mist); margin-top:0.3rem;">A refeição formal nos dias de prática intensiva.</div>
+        <a href="/perguntas-ao-mestre/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Mestre Shoshin</div>
+          <div class="teaching-sidebar-title">Perguntas ao Mestre</div>
+          <div class="teaching-sidebar-desc">Respostas do Mestre Yves Shoshin Crettaz.</div>
         </a>
-        <a href="/videos/" style="background:var(--ink-2); padding:1.5rem; text-decoration:none; display:block; transition:background 0.2s;" onmouseover="this.style.background='var(--paper-3)'" onmouseout="this.style.background='var(--ink-2)'">
-          <div style="font-size:0.56rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-bottom:0.4rem;">Multimédia</div>
-          <div style="font-family:var(--font-serif); font-size:1.1rem; color:var(--stone);">Vídeos</div>
-          <div style="font-size:1rem; color:var(--mist); margin-top:0.3rem;">Sessões e ensinamentos em vídeo.</div>
+        <a href="/oryoki/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Cerimónia</div>
+          <div class="teaching-sidebar-title">Oryoki</div>
+          <div class="teaching-sidebar-desc">A refeição formal nos dias de prática intensiva.</div>
         </a>
-      </div>
-    </div>
+        <a href="/videos/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Multimédia</div>
+          <div class="teaching-sidebar-title">Vídeos</div>
+          <div class="teaching-sidebar-desc">Sessões e ensinamentos em vídeo.</div>
+        </a>
+        <a href="/documentos/" class="teaching-sidebar-item">
+          <div class="teaching-sidebar-eyebrow">Referências</div>
+          <div class="teaching-sidebar-title">Documentos</div>
+          <div class="teaching-sidebar-desc">Guias e textos para download.</div>
+        </a>
+      </aside>
+    </div></div>
   </section>
 
 
