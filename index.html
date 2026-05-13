@@ -1159,6 +1159,71 @@
     }
 
     .footer-bottom a:hover { color: var(--gold); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      /* Hero */
+      .hero { min-height: 100svh; }
+      .hero-bg-art { display: none; }
+      .hero-shikantaza { display: none; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+
+      /* Enso */
+      .section-enso { padding: 4rem 0; }
+      .enso-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .enso-visual { max-width: 100%; aspect-ratio: 4/3; }
+
+      /* Schedule */
+      .section-schedule { padding: 4rem 0; }
+      .schedule-head { grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 2rem; }
+      .schedule-grid { grid-template-columns: repeat(3, 1fr); }
+      .downloads-grid { grid-template-columns: 1fr !important; }
+
+      /* Events */
+      .section-events { padding: 4rem 0; }
+      .events-head { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .event-row { grid-template-columns: 3.5rem 1fr; gap: 1.25rem; padding: 1.25rem 1rem; }
+      .event-aside { display: none; }
+      .event-body h3 { font-size: 1.25rem; }
+
+      /* Masters */
+      .section-masters { padding: 4rem 0; }
+      .masters-head { margin-bottom: 2.5rem; }
+      .masters-grid { grid-template-columns: 1fr; }
+      .master-card { grid-template-columns: 6rem 1fr; gap: 1.5rem; padding: 2rem 1.5rem; }
+
+      /* Pillars */
+      .pillars-grid { grid-template-columns: 1fr; }
+      .pillar { padding: 2.5rem 2rem 3rem; }
+
+      /* Beginners */
+      .section-beginners { padding: 4rem 0; }
+      .beginners-wrap { grid-template-columns: 1fr; }
+      .beginners-left { padding: 2.5rem 2rem; border-right: none; border-bottom: 1px solid var(--rule); }
+      .beginners-right { padding: 2.5rem 2rem; }
+      .kanji-deco { font-size: 5rem; margin-bottom: 1.5rem; }
+
+      /* Quote */
+      .section-quote { padding: 4rem 0; }
+
+      /* Fuse */
+      .section-fuse { padding: 4rem 0; }
+      .fuse-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2.5rem 2rem; }
+      .fuse-kanji { font-size: 5rem; }
+
+      /* Footer */
+      .footer-main { grid-template-columns: 1fr 1fr; gap: 2.5rem; padding: 3.5rem 0 3rem; }
+      .footer-brand { grid-column: 1 / -1; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 0; }
+    }
+
+    @media (max-width: 480px) {
+      .schedule-grid { grid-template-columns: repeat(2, 1fr); }
+      .event-date { padding-right: 1rem; }
+      .event-num { font-size: 2rem; }
+      .master-card { grid-template-columns: 5rem 1fr; gap: 1rem; padding: 1.5rem 1rem; }
+      .footer-main { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -1302,7 +1367,7 @@
         </div>
       </div>
 
-      <div style="margin-top:2.5rem; display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--rule);">
+      <div class="downloads-grid" style="margin-top:2.5rem; display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--rule);">
 
         <div style="background:var(--paper); padding:2rem 2.25rem; display:flex; flex-direction:column; gap:1.25rem;">
           <div>

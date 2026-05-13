@@ -858,13 +858,47 @@ footer {
   .footer-brand { grid-column: 1 / -1; }
 }
 
+@media (max-width: 768px) {
+  /* Two-column content grid → single column */
+  .content-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+
+  /* Inner page sections */
+  .section { padding: 3.5rem 0; }
+  .section-alt { padding: 3.5rem 0; }
+
+  /* Event detail pages: 2-col form layout → stack */
+  .event-detail-grid {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+
+  /* Sutra / kusen listing rows */
+  .sutra-row:hover { margin: 0; padding-left: 0; padding-right: 0; }
+
+  /* Teaching cards grid */
+  .teaching-cards { grid-template-columns: 1fr !important; }
+
+  /* Page hero */
+  .page-hero h1 { font-size: clamp(2.25rem, 8vw, 3.5rem); }
+
+  /* Footer */
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.25rem 0; }
+}
+
 @media (max-width: 600px) {
   .container, .container-narrow { padding: 0 1.25rem; }
 
-  .page-hero { padding: 8rem 0 3.5rem; }
+  .page-hero { padding: 8rem 0 3rem; }
+  .page-hero h1 { font-size: clamp(2rem, 7vw, 3rem); }
+
+  .content-grid { gap: 2rem !important; }
 
   .person-card { grid-template-columns: 1fr; }
   .person-photo { width: 7rem; }
 
   .footer-main { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
 }
