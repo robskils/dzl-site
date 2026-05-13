@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Prática no Dojo — Dojo Zen de Lisboa</title>
+  <meta name="description" content="O guia de referência para a vida e a prática no Dojo Zen de Lisboa. Protocolo, etiqueta, cerimónias e o espírito da sangha.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:   #1c1812;
+      --paper: #f5f0e8;
+      --red:   #c4412e;
+      --gold:  #a8844a;
+      --mist:  rgba(28,24,18,0.5);
+      --rule:  rgba(28,24,18,0.12);
+    }
+
+    body {
+      background: #2a2520;
+      color: var(--ink);
+      font-family: 'Inter', system-ui, sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── Screen nav ── */
+    .screen-header {
+      background: var(--ink);
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .screen-header a { color: rgba(255,255,255,0.6); font-size: 0.8rem; text-decoration: none; letter-spacing: 0.05em; }
+    .screen-header a:hover { color: #fff; }
+    .print-btn {
+      background: var(--red);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    .print-btn:hover { background: #d4503c; }
+
+    /* ── A4 page ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 2rem auto;
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      page-break-after: always;
+    }
+    .page:last-of-type { page-break-after: auto; margin-bottom: 2rem; }
+
+    .bg-kanji {
+      position: absolute;
+      right: -3rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 38rem;
+      color: rgba(255,255,255,0.025);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .top-bar { background: var(--red); height: 6px; width: 100%; }
+
+    .doc-header {
+      padding: 2.5rem 3.5rem 2rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .logo-wrap { display: flex; align-items: center; gap: 1rem; }
+    .seal { width: 44px; height: 44px; background: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .seal span { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; color: #fff; line-height: 1; }
+    .logo-text .name { display: block; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; color: #fff; font-weight: 400; letter-spacing: 0.02em; line-height: 1.2; }
+    .logo-text .sub { display: block; font-size: 0.6rem; color: rgba(255,255,255,0.4); letter-spacing: 0.2em; text-transform: uppercase; margin-top: 0.15rem; }
+
+    .doc-meta { text-align: right; }
+    .doc-meta .label { font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 0.25rem; }
+    .doc-meta .value { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 0.85rem; color: rgba(255,255,255,0.45); }
+
+    .title-block { padding: 0 3.5rem 2rem; position: relative; }
+    .eyebrow { font-size: 0.56rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.75rem; }
+    .eyebrow::before { content: ''; display: block; width: 2rem; height: 1px; background: var(--gold); }
+    h1 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; font-weight: 300; color: #fff; line-height: 1.0; letter-spacing: -0.01em; }
+    .subtitle { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.38); margin-top: 0.4rem; }
+
+    .rule { height: 1px; background: rgba(255,255,255,0.08); margin: 0 3.5rem; }
+
+    /* ── Guide content ── */
+    .guide-body {
+      padding: 1.75rem 3.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .guide-section {
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .guide-section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-size: 0.52rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.4rem;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    .section-body em { color: rgba(255,255,255,0.65); font-style: italic; }
+    .section-body strong { color: rgba(255,255,255,0.7); font-weight: 500; }
+
+    .checklist { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.4rem; }
+    .check-item { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .check-item::before { content: '—'; color: var(--red); flex-shrink: 0; font-size: 0.75rem; margin-top: 0.05rem; }
+
+    /* ── Two-column layout ── */
+    .two-col {
+      padding: 1.75rem 3.5rem;
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 2.5rem;
+      align-content: start;
+    }
+
+    .col-section {
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .col-section:last-child { border-bottom: none; }
+
+    .col-section .section-label { font-size: 0.5rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .col-section .section-title { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.05rem; font-weight: 400; color: #fff; margin-bottom: 0.3rem; line-height: 1.2; }
+    .col-section .section-body { font-size: 0.78rem; color: rgba(255,255,255,0.48); line-height: 1.65; }
+    .col-section .section-body em { color: rgba(255,255,255,0.62); font-style: italic; }
+    .col-section .section-body strong { color: rgba(255,255,255,0.65); font-weight: 500; }
+
+    .col-divider { grid-column: 1 / -1; height: 1px; background: rgba(255,255,255,0.08); margin: 0.5rem 0; }
+
+    /* ── Footer ── */
+    .doc-footer { padding: 1rem 3.5rem 1.75rem; display: flex; align-items: center; justify-content: space-between; }
+    .doc-footer p { font-size: 0.62rem; color: rgba(255,255,255,0.2); letter-spacing: 0.04em; }
+    .doc-footer .url { font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; color: rgba(255,255,255,0.3); font-size: 0.78rem; }
+
+    /* ── Print ── */
+    @media print {
+      body { background: none; }
+      .screen-header { display: none; }
+      .page { margin: 0; width: 210mm; min-height: 297mm; box-shadow: none; }
+      @page { size: A4; margin: 0; }
+    }
+
+    @media (max-width: 700px) {
+      .page { width: 100%; margin: 0 0 1rem; }
+      .doc-header, .title-block, .guide-body, .two-col, .doc-footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .rule { margin: 0 1.5rem; }
+      h1 { font-size: 2.25rem; }
+      .two-col { grid-template-columns: 1fr; }
+      .col-divider { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-header">
+    <a href="/">← Dojo Zen de Lisboa</a>
+    <button class="print-btn" onclick="window.print()">Imprimir / Guardar PDF</button>
+  </div>
+
+  <!-- PAGE 1 — O Zendo e o Protocolo -->
+  <div class="page">
+    <div class="bg-kanji">堂</div>
+    <div class="top-bar"></div>
+
+    <div class="doc-header">
+      <div class="logo-wrap">
+        <div class="seal"><span>禅</span></div>
+        <div class="logo-text">
+          <span class="name">Dojo Zen de Lisboa</span>
+          <span class="sub">Ryūmonji · desde 1997</span>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <span class="label">Tradição</span>
+        <span class="value">Soto Zen · AZI</span>
+      </div>
+    </div>
+
+    <div class="title-block">
+      <div class="eyebrow">O Dojo · O Protocolo</div>
+      <h1>A Prática<br>no Dojo</h1>
+      <p class="subtitle">Protocolo, etiqueta e a vida no Ryūmonji</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="guide-body">
+
+      <div class="guide-section">
+        <div class="section-label">O Zendo</div>
+        <div class="section-title">Um espaço sagrado de prática</div>
+        <div class="section-body">O zendo é o espaço onde se pratica Zazen. Não é uma sala de aula nem um ginásio — é um lugar de prática silenciosa que exige respeito e atenção. A sessão começa desde que se entra. Cada gesto conta.</div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">Entrar e sair</div>
+        <div class="section-title">Gassho e Shashu</div>
+        <div class="section-body">Ao entrar no zendo, faça uma vénia (<em>gassho</em>) na entrada — mãos juntas à altura do peito, cabeça ligeiramente inclinada. Repita ao sair. Durante todos os deslocamentos dentro do dojo, mantenha as mãos em <em>shashu</em>: mão esquerda fechada, polegar no interior, coberta pela mão direita. O shashu indica que a prática está em curso.</div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">O vestuário</div>
+        <div class="section-title">Roupa escura, mente clara</div>
+        <div class="section-body">Vista roupa confortável e solta em tons escuros ou neutros — preto, cinzento, azul escuro. Évite estampados e logos. Os praticantes com <em>kesa</em> ou <em>rakusu</em> vestem-nos durante a sessão. Retire o calçado antes de entrar. Os telemóveis ficam no silêncio e fora do zendo.</div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">O silêncio</div>
+        <div class="section-title">Quando e como se mantém</div>
+        <div class="section-body">O silêncio é a linguagem do dojo. Mantém-se durante todo o tempo de prática — de entrada a saída. Não se conversa no zendo antes, durante nem imediatamente após a sessão. Depois, no exterior do zendo, é natural trocar algumas palavras. Se tiver uma questão urgente, dirija-se ao monitor discretamente.</div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">O mestre e os monitores</div>
+        <div class="section-title">A relação com quem orienta</div>
+        <div class="section-body">O mestre é a figura central da transmissão. Trate-o com respeito e escuta. Os monitores (<em>inji</em>) auxiliam na gestão do dojo e na recepção de novos praticantes. As dúvidas sobre prática colocam-se após a sessão, com serenidade. Não interrompa o Zazen dos outros com gestos ou palavras.</div>
+      </div>
+
+      <div class="guide-section">
+        <div class="section-label">O sino e o tambor</div>
+        <div class="section-title">Instrumentos de ritmo</div>
+        <div class="section-body">O <em>inkin</em> (sino pequeno) marca o início e o fim do Zazen e do Kinhin. O <em>mokugyo</em> (tambor de madeira em forma de peixe) marca o ritmo dos sutras. Ao ouvir o sino, não se apresse — mova-se com deliberação.</div>
+      </div>
+
+    </div>
+
+    <div class="rule" style="margin-bottom:1rem;"></div>
+
+    <div class="doc-footer">
+      <p>Rua Luciano Cordeiro nº 49 CV–Dtº · 1150-212 Lisboa · Metro: Marquês de Pombal</p>
+      <span class="url">dojozenlisboa.com</span>
+    </div>
+  </div>
+
+  <!-- PAGE 2 — A Vida no Dojo -->
+  <div class="page">
+    <div class="bg-kanji">道</div>
+    <div class="top-bar"></div>
+
+    <div class="doc-header">
+      <div class="logo-wrap">
+        <div class="seal"><span>禅</span></div>
+        <div class="logo-text">
+          <span class="name">Dojo Zen de Lisboa</span>
+          <span class="sub">Ryūmonji · desde 1997</span>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <span class="label">Página</span>
+        <span class="value">2 de 2</span>
+      </div>
+    </div>
+
+    <div class="title-block" style="padding-bottom:1.5rem;">
+      <div class="eyebrow">A Vida no Dojo</div>
+      <h1>Cerimónias,<br>Comunidade<br>&amp; Prática</h1>
+      <p class="subtitle">A dimensão colectiva do caminho</p>
+    </div>
+
+    <div class="rule"></div>
+
+    <div class="two-col">
+
+      <div class="col-section">
+        <div class="section-label">As cerimónias</div>
+        <div class="section-title">Canto de sutras</div>
+        <div class="section-body">Após o Zazen, canta-se o <em>Hannya Shingyō</em> e outros sutras em uníssono, seguindo o ritmo do mokugyo. Segure o texto com ambas as mãos à altura do peito. Cante com voz plena e grave — não em falsete. O canto é prática tanto quanto o silêncio.</div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-label">Kinhin — protocolo</div>
+        <div class="section-title">A meditação a caminhar</div>
+        <div class="section-body">Ao sinal do sino, levante-se devagar, faça gassho ao lugar. Caminhe em fila, em sentido anti-horário, mãos em shashu. Cada passo é deliberado: calcanhar, planta, dedos — meio passo por respiração. Mantenha a distância ao praticante à frente. Ao segundo sino, regresse ao lugar.</div>
+      </div>
+
+      <div class="col-divider"></div>
+
+      <div class="col-section">
+        <div class="section-label">Samu</div>
+        <div class="section-title">O trabalho como prática</div>
+        <div class="section-body">O <em>samu</em> é o trabalho silencioso em benefício do dojo — limpar, arrumar, cuidar do espaço. É prática tão legítima quanto o Zazen. Faz-se com atenção plena, sem pressa, sem conversa. Quem participa nos dias de Zazen ou retiros é convidado a contribuir com samu.</div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-label">O Oriyoki</div>
+        <div class="section-title">A refeição formal</div>
+        <div class="section-body">Nos dias de prática intensiva, a refeição é servida em <em>oriyoki</em> — tigelas de laca desdobradas em silêncio, seguindo um ritual preciso de oferta e recepção. Cada gesto tem a sua forma. Aprende-se por observação e participação. Não é difícil — pede apenas atenção.</div>
+      </div>
+
+      <div class="col-divider"></div>
+
+      <div class="col-section">
+        <div class="section-label">A Sangha</div>
+        <div class="section-title">O espírito de comunidade</div>
+        <div class="section-body">A <em>sangha</em> — a comunidade de praticantes — é o terceiro dos Três Tesouros, a par do Buda e do Dharma. No dojo, tratamo-nos com respeito e discrição. Apoiamos os novos praticantes com presença, não com palavras. A prática de cada um fortalece a de todos.</div>
+      </div>
+
+      <div class="col-section">
+        <div class="section-label">Cuidar do espaço</div>
+        <div class="section-title">Respeito pelos objectos</div>
+        <div class="section-body">Os zafu, as vestes, os instrumentos — tudo no dojo é objecto de prática. Trate-os com cuidado. Devolva o que usou ao sítio exacto onde estava. Se danificar algo, informe o monitor. O dojo é de todos e de ninguém — por isso exige o melhor de cada um.</div>
+      </div>
+
+      <div class="col-divider"></div>
+
+      <div class="col-section" style="grid-column: 1 / -1;">
+        <div class="section-label">O espírito da prática</div>
+        <div class="section-body" style="font-family:'Cormorant Garamond',Georgia,serif; font-size:1.05rem; font-style:italic; color:rgba(255,255,255,0.42); line-height:1.75;">"Não praticar apenas para si. Praticar com e para a sangha, para todos os seres."<span style="display:block; margin-top:0.5rem; font-family:'Inter',sans-serif; font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase; font-style:normal; color:rgba(255,255,255,0.22);">Taïsen Deshimaru</span></div>
+      </div>
+
+    </div>
+
+    <div class="rule" style="margin-bottom:1rem;"></div>
+
+    <div class="doc-footer">
+      <p>Rua Luciano Cordeiro nº 49 CV–Dtº · 1150-212 Lisboa · Metro: Marquês de Pombal</p>
+      <span class="url">dojozenlisboa.com</span>
+    </div>
+  </div>
+
+</body>
+</html>
