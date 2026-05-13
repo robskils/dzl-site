@@ -180,7 +180,7 @@ body {
 
 .logo-text .name {
   font-family: var(--font-serif);
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--ink);
@@ -286,8 +286,11 @@ nav .nav-item:hover > a { color: var(--ink); }
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.75rem;
   color: var(--ink);
+  position: relative;
+  z-index: 101;
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* ── Mobile nav ── */
@@ -859,9 +862,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-  /* Logo: hide Ryūmonji sub, bigger name */
+  /* Logo: hide Ryūmonji sub on mobile */
   .logo-text .sub { display: none; }
-  .logo-text .name { font-size: 1.15rem; }
 
   /* Two-column content grid → single column */
   .content-grid {
