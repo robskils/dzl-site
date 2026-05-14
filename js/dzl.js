@@ -43,41 +43,6 @@ if (ham && mobileNav) {
   });
 }
 
-// ── Parallax image sections ────────────────────────────────
-(function () {
-  const wraps = document.querySelectorAll('.parallax-wrap');
-  if (!wraps.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (window.matchMedia('(max-width: 768px)').matches) return;
-
-  let ticking = false;
-
-  function update() {
-    wraps.forEach(wrap => {
-      const rect = wrap.getBoundingClientRect();
-      if (rect.bottom < -200 || rect.top > window.innerHeight + 200) return;
-      const mid = rect.top + rect.height / 2 - window.innerHeight / 2;
-
-      // Image — slides in same direction as scroll, anchored from centre
-      const img = wrap.querySelector('.parallax-img');
-      if (img) img.style.transform = `translateY(calc(-50% + ${(mid * 0.2).toFixed(2)}px))`;
-
-      // Overlay layers — each drifts at its own speed (negative = counter-scroll)
-      wrap.querySelectorAll('.parallax-layer').forEach(layer => {
-        const speed = parseFloat(layer.dataset.speed || '0');
-        layer.style.transform = `translateY(${(mid * speed).toFixed(2)}px)`;
-      });
-    });
-    ticking = false;
-  }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(update); ticking = true; }
-  }, { passive: true });
-
-  update();
-}());
-
 // ── Fade-up on scroll ───────────────────────────────────────
 const fadeEls = document.querySelectorAll('.fade-up');
 if (fadeEls.length) {
