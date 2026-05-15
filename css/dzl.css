@@ -254,7 +254,7 @@ body {
 }
 
 .logo-text .sub {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--mist);
