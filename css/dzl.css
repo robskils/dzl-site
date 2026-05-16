@@ -143,8 +143,8 @@ body {
 
 .text-link:hover { gap: 1rem; }
 
-.sutra-row { transition: background 0.15s; }
-.sutra-row:hover { background: var(--ink-2); }
+.sutra-row { transition: background 0.2s, box-shadow 0.2s; }
+.sutra-row:hover { background: var(--ink-2); box-shadow: 1.5rem 0 0 var(--ink-2), -1.5rem 0 0 var(--ink-2); }
 .sutra-row:hover h3 { color: var(--red); }
 
 .teaching-card:hover { background: var(--ink-2) !important; }
