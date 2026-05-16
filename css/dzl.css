@@ -144,7 +144,7 @@ body {
 .text-link:hover { gap: 1rem; }
 
 .sutra-row { transition: background 0.15s; }
-.sutra-row:hover { background: var(--ink-2); margin: 0 -1.5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+.sutra-row:hover { background: var(--ink-2); }
 .sutra-row:hover h3 { color: var(--red); }
 
 .teaching-card:hover { background: var(--ink-2) !important; }
@@ -1025,7 +1025,6 @@ footer {
   }
 
   /* Sutra / kusen listing rows */
-  .sutra-row:hover { margin: 0; padding-left: 0; padding-right: 0; }
 
   /* Teaching cards grid */
   .teaching-cards { grid-template-columns: 1fr !important; }
